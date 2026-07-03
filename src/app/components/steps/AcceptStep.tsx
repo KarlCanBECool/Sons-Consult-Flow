@@ -11,6 +11,24 @@ interface AcceptStepProps {
   onNext: () => void;
 }
 
+const DOCTOR_FALLBACK_URL =
+  "https://images.unsplash.com/photo-1632054224659-280be3239aff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwZG9jdG9yJTIwcG9ydHJhaXQlMjBoZWFkc2hvdCUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NzI2NTg5OTR8MA&ixlib=rb-4.1.0&q=80&w=1080";
+
+const BENEFIT_ITEMS = [
+  "Takes less than 1 minute.",
+  "Safe, regulated treatments.",
+  "Qualified aftercare team.",
+];
+
+const ACCEPT_CRITERIA = [
+  "I am male at birth and over 18 years old",
+  "I currently live in the UK",
+  "I am using this service of my own free will",
+  "I shall be the sole user of any medication offered to me through this service and prescribed by Son's independent prescribing partners",
+  "I agree to the terms of service, terms of subscription, and privacy policy",
+  "I confirm all answers will be provided honestly and truthfully",
+];
+
 function CheckIcon() {
   return (
     <div className="relative shrink-0 size-[24px]">
@@ -23,121 +41,153 @@ function CheckIcon() {
   );
 }
 
+function DoctorAvatar({ className = "" }: { className?: string }) {
+  return (
+    <div className={`relative rounded-[9999px] size-[80px] pointer-events-none ${className}`}>
+      <ImageWithFallback
+        alt="Doctor"
+        className="absolute inset-0 max-w-none object-cover rounded-[9999px] size-full"
+        src={imgImage1}
+        onError={(e) => {
+          (e.target as HTMLImageElement).src = DOCTOR_FALLBACK_URL;
+        }}
+      />
+      <div className="absolute border-2 border-[#4100e7] border-solid inset-0 rounded-[9999px]" />
+    </div>
+  );
+}
+
+function BenefitRow({ text }: { text: string }) {
+  return (
+    <div className="flex gap-[8px] items-center w-full">
+      <CheckIcon />
+      <p className="flex-[1_0_0] font-['Aeroport:Light',sans-serif] leading-[20px] text-[16px] text-black tracking-[-0.3px]">
+        {text}
+      </p>
+    </div>
+  );
+}
+
+function BenefitList({ items }: { items: string[] }) {
+  return (
+    <div className="bg-[#f7f7f7] rounded-[24px] w-full flex flex-col gap-[8px] pl-[16px] pr-[24px] py-[16px]">
+      {items.map((text) => (
+        <BenefitRow key={text} text={text} />
+      ))}
+    </div>
+  );
+}
+
+function GuaranteeCard() {
+  return (
+    <div className="inline-grid grid-cols-[max-content] grid-rows-[max-content] place-items-start leading-[0] shrink-0">
+      <div className="col-start-1 row-start-1 bg-[#f7f7f7] flex flex-col gap-[8px] items-start mt-[40px] overflow-clip pb-[32px] pt-[24px] px-[24px] rounded-[12px] text-black w-[402px]">
+        <p className="font-['Aeroport:Medium',sans-serif] leading-[28px] not-italic text-[22px] tracking-[-1.4px] w-full">
+          Money back guarantee
+        </p>
+        <p className="font-['Aeroport:Light',sans-serif] leading-[20px] text-[16px] tracking-[-0.3px] w-full">
+          Our clinically-backed treatments have been proven to halt hair loss for 94% of men. That's most guys. However, this does mean that a small few won't respond to the treatment.
+        </p>
+      </div>
+      <DoctorAvatar className="col-start-1 row-start-1 ml-[293.5px] mt-0 z-10" />
+    </div>
+  );
+}
+
+function MobileImageBadge() {
+  return (
+    <div className="max-md:block hidden relative rounded-[24px] shrink-0 w-full h-[160px]">
+      <img
+        alt=""
+        className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full"
+        src={imgImageBadge}
+      />
+      <div className="flex flex-col justify-center overflow-clip rounded-[inherit] size-full">
+        <div className="flex flex-col items-start justify-end p-[16px] relative size-full">
+          <DoctorAvatar />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ProductImageColumn() {
+  return (
+    <div className="relative rounded-[32px] shrink-0 w-[450px] lg:sticky lg:top-[40px] lg:self-start lg:h-[calc(100vh-180px)] lg:max-h-[800px] lg:overflow-hidden max-lg:w-full max-lg:min-h-[360px] max-md:min-h-0 max-md:rounded-[24px] max-md:overflow-hidden">
+      <img
+        alt=""
+        className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[32px] size-full block max-md:hidden"
+        src={imgFrame16}
+      />
+
+      <MobileImageBadge />
+
+      <div className="max-md:hidden max-lg:flex lg:hidden absolute top-0 left-0 p-[16px]">
+        <DoctorAvatar />
+      </div>
+
+      <div className="absolute inset-0 flex flex-col items-center justify-end overflow-clip rounded-[inherit] p-[24px] max-lg:hidden pointer-events-none">
+        <div className="pointer-events-auto shrink-0">
+          <GuaranteeCard />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AcceptButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      className="bg-[#4300dd] flex h-[52px] items-center justify-center px-[32px] py-[16px] rounded-[9999px] w-full cursor-pointer hover:bg-[#3600b3] transition-colors mt-[24px] font-['Aeroport:Bold',sans-serif] leading-[16px] not-italic text-[#f7f7f7] text-[18px] text-center tracking-[-0.4px] whitespace-nowrap border-none"
+    >
+      I accept
+    </button>
+  );
+}
+
+function LoginPrompt({ className = "" }: { className?: string }) {
+  return (
+    <p className={`font-['Aeroport:Light',sans-serif] leading-[20px] text-[16px] text-black tracking-[-0.3px] ${className}`}>
+      <span>Already have an account? </span>
+      <span className="text-[#4300dd] cursor-pointer hover:underline">Log in</span>
+    </p>
+  );
+}
+
 export function AcceptStep({ onNext }: AcceptStepProps) {
   return (
-    <StepScrollLayout className="min-h-full max-md:min-h-0 justify-center max-md:justify-start max-md:gap-0">
-      <div className="content-stretch flex gap-[24px] items-stretch lg:items-start justify-center min-h-px min-w-px relative max-w-[1034px] max-lg:flex-col max-lg:gap-[32px] max-lg:w-full w-full max-md:pb-[40px]">
+    <StepScrollLayout className="min-h-full max-md:min-h-0 justify-center max-md:justify-start gap-[8px] max-md:gap-0">
+      <div className="flex gap-[24px] items-stretch lg:items-end justify-center max-w-[1034px] max-lg:flex-col max-lg:gap-[32px] max-lg:w-full w-full max-md:pb-[40px]">
+        <ProductImageColumn />
 
-        {/* Left side - Product image */}
-        <div className="relative rounded-[32px] shrink-0 w-[450px] lg:sticky lg:top-[40px] lg:self-start lg:h-[calc(100vh-180px)] lg:max-h-[800px] lg:overflow-hidden max-lg:w-full max-lg:min-h-[360px] max-md:min-h-0 max-md:h-[112px] max-md:rounded-[24px] max-md:overflow-hidden">
-          {/* Desktop image — absolutely positioned, full height */}
-          <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[32px] size-full block max-md:hidden" src={imgFrame16} />
+        <div className="flex flex-col gap-[24px] w-[559px] max-lg:w-full max-lg:h-auto px-[40px] py-[32px] max-md:px-0 max-md:py-0 rounded-[32px] justify-center max-lg:justify-start">
+          <section className="flex flex-col gap-[16px] items-start w-full">
+            <h1 className="font-['Aeroport:Bold',sans-serif] leading-[40px] not-italic text-[36px] text-black tracking-[-1.4px] w-full max-md:text-[24px] max-md:leading-[28px]">
+              Sons is with you every step of the way
+            </h1>
+            <p className="font-['Aeroport:Light',sans-serif] leading-[20px] text-[16px] text-black tracking-[-0.3px] w-full">
+              We'll ask you some questions about your hair loss and then our prescribing partners will recommend the best treatment plan for you.
+            </p>
+            <BenefitList items={BENEFIT_ITEMS} />
+          </section>
 
-          {/* Mobile badge image — fixed 112px height banner */}
-          <img alt="" className="max-md:block hidden w-full h-[112px] rounded-[24px] object-cover" src={imgImageBadge} />
-
-          {/* Doctor avatar overlay on mobile and tablet (matches M3PreConsult Figma) */}
-          <div className="max-lg:flex lg:hidden absolute top-0 left-0 p-[16px]">
-            <div className="relative rounded-[9999px] size-[80px] pointer-events-none">
-              <ImageWithFallback
-                alt="Doctor"
-                className="absolute inset-0 max-w-none object-cover rounded-[9999px] size-full"
-                src={imgImage1}
-                onError={(e) => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1632054224659-280be3239aff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwZG9jdG9yJTIwcG9ydHJhaXQlMjBoZWFkc2hvdCUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NzI2NTg5OTR8MA&ixlib=rb-4.1.0&q=80&w=1080"; }}
-              />
-              <div className="absolute border-2 border-[#4100e7] border-solid inset-0 rounded-[9999px]" />
-            </div>
-          </div>
-
-          {/* Desktop overlay content (guarantee card + doctor avatar) */}
-          <div className="flex flex-col items-center justify-end rounded-[inherit] size-full max-lg:hidden">
-            <div className="content-stretch flex flex-col items-center justify-end p-[24px] relative size-full">
-              <div className="inline-grid relative shrink-0">
-                <div className="bg-[#f7f7f7] content-stretch flex flex-col gap-[8px] items-start mt-[40px] overflow-clip pb-[32px] pt-[24px] px-[24px] relative rounded-[12px] text-black w-[402px]">
-                  <p className="font-['Aeroport:Medium',sans-serif] leading-[28px] not-italic text-[22px] tracking-[-1.4px] w-full">Money back guarantee</p>
-                  <p className="font-['Aeroport:Light',sans-serif] leading-[20px] text-[16px] tracking-[-0.3px] w-full">
-                    Our clinically-backed treatments have been proven to halt hair loss for 94% of men. That's most guys. However, this does mean that a small few won't respond to the treatment.
-                  </p>
-                </div>
-                <div className="absolute right-[24px] top-0 pointer-events-none rounded-[9999px] size-[80px]">
-                  <ImageWithFallback alt="Doctor" className="absolute inset-0 max-w-none object-cover rounded-[9999px] size-full" src={imgImage1} onError={(e) => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1632054224659-280be3239aff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwZG9jdG9yJTIwcG9ydHJhaXQlMjBoZWFkc2hvdCUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NzI2NTg5OTR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"; }} />
-                  <div className="absolute border-2 border-[#4100e7] border-solid inset-0 rounded-[9999px]" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Right side - Content */}
-        <div className="h-full relative rounded-[32px] shrink-0 w-[559px] max-lg:h-auto max-lg:w-full">
-          <div className="flex flex-col items-end rounded-[inherit] size-full max-lg:h-auto">
-            <div className="content-stretch flex flex-col gap-[16px] items-end px-[40px] py-[32px] relative w-full max-lg:h-auto max-md:px-0 max-md:py-[32px]">
-              <div className="content-stretch flex flex-col items-start min-h-px min-w-px relative w-full mb-[16px]">
-                <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
-                  <div className="font-['Aeroport:Bold',sans-serif] leading-[40px] not-italic text-[36px] text-black tracking-[-1.4px] w-full max-md:text-[24px] max-md:leading-[28px]">
-                    <p className="mb-0">Sons is with you every step</p>
-                    <p>of the way</p>
-                  </div>
-                  <p className="font-['Aeroport:Light',sans-serif] leading-[20px] text-[16px] text-black tracking-[-0.3px] w-full">
-                    We'll ask you some questions about your hair loss and then our prescribing partners will recommend the best treatment plan for you.
-                  </p>
-                  <div className="bg-[#f7f7f7] relative rounded-[24px] shrink-0 w-full">
-                    <div className="flex flex-col items-center justify-center size-full">
-                      <div className="content-stretch flex flex-col gap-[8px] items-center justify-center pl-[16px] pr-[24px] py-[16px] relative w-full">
-                        <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full">
-                          <CheckIcon />
-                          <p className="flex-[1_0_0] font-['Aeroport:Light',sans-serif] leading-[20px] text-[16px] text-black tracking-[-0.3px]">
-                            Takes less than 1 minute.
-                          </p>
-                        </div>
-                        <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full">
-                          <CheckIcon />
-                          <p className="flex-[1_0_0] font-['Aeroport:Light',sans-serif] leading-[20px] not-italic text-[16px] text-black tracking-[-0.3px]">Safe, regulated treatments.</p>
-                        </div>
-                        <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full">
-                          <CheckIcon />
-                          <p className="flex-[1_0_0] font-['Aeroport:Light',sans-serif] leading-[20px] not-italic text-[16px] text-black tracking-[-0.3px]">Qualified aftercare team.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="font-['Aeroport:Light',sans-serif] leading-[0] text-[0px] text-black tracking-[-0.3px] w-full mb-[40px] pb-[40px]">
-                  <p className="font-['Aeroport:Bold',sans-serif] leading-[20px] mb-[8px] text-[16px]">
-                    Please read the statement and accept if you meet all the criteria
-                  </p>
-                  <ul className="list-disc pl-[24px] leading-[20px] text-[16px] space-y-[3px]">
-                    <li>I am male at birth and over 18 years old</li>
-                    <li>I currently live in the UK</li>
-                    <li>I am using this service of my own free will</li>
-                    <li>I shall be the sole user of any medication offered to me through this service and prescribed by Son's independent prescribing partners</li>
-                    <li>I agree to the terms of service, terms of subscription, and privacy policy</li>
-                    <li>I confirm all answers will be provided honestly and truthfully</li>
-                  </ul>
-                  <button
-                    onClick={onNext}
-                    className="bg-[#4300dd] content-stretch flex h-[52px] items-center justify-center px-[32px] py-[16px] relative rounded-[9999px] shrink-0 w-full cursor-pointer hover:bg-[#3600b3] transition-colors mt-[24px]"
-                  >
-                    <p className="font-['Aeroport:Bold',sans-serif] leading-[16px] not-italic text-[#f7f7f7] text-[18px] text-center tracking-[-0.4px] whitespace-nowrap">I accept</p>
-                  </button>
-                  {/* Mobile-only Log in link — appears directly below button */}
-                  <p className="lg:hidden font-['Aeroport:Light',sans-serif] leading-[20px] text-[16px] text-black tracking-[-0.3px] w-full mt-[16px]">
-                    <span>Already have an account? </span>
-                    <span className="text-[#4300dd] cursor-pointer hover:underline">Log in</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <section className="flex flex-col w-full pb-[40px] font-['Aeroport:Light',sans-serif] text-black tracking-[-0.3px]">
+            <p className="font-['Aeroport:Bold',sans-serif] leading-[20px] mb-[8px] text-[16px]">
+              Please read the statement and accept if you meet all the criteria
+            </p>
+            <ul className="list-disc pl-[24px] leading-[20px] text-[16px] space-y-[3px]">
+              {ACCEPT_CRITERIA.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <AcceptButton onClick={onNext} />
+            <LoginPrompt className="lg:hidden w-full mt-[16px]" />
+          </section>
         </div>
       </div>
 
-      {/* Desktop-only Log in link — below the two-column section */}
-      <p className="max-lg:hidden font-['Aeroport:Light',sans-serif] leading-[20px] text-[16px] text-black tracking-[-0.3px] w-[1034px]">
-        <span>Already have an account? </span>
-        <span className="text-[#4300dd] cursor-pointer hover:underline">Log in</span>
-      </p>
+      <LoginPrompt className="max-lg:hidden w-[1034px]" />
     </StepScrollLayout>
   );
 }

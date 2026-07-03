@@ -12,7 +12,7 @@ interface StepScrollLayoutProps {
 export function StepScrollLayout({ children, className = "" }: StepScrollLayoutProps) {
   return (
     <div className="flex-1 relative w-full min-h-0">
-      <div className="overflow-y-auto size-full pb-[40px]">
+      <div className="overflow-y-auto size-full">
         <div
           className={`flex flex-col items-center px-px py-page-py max-md:items-start max-md:justify-start max-md:py-0 max-md:pt-page-pt-mobile max-md:pb-page-pb-mobile max-md:px-page-gutter relative w-full ${className}`}
         >
