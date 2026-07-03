@@ -48,6 +48,8 @@ function RootLayout() {
     currentStep !== 14 &&
     currentStep !== 15;
 
+  const showNav = currentStep !== 12;
+
   return (
     <div className="bg-[#e6e6e6] content-stretch flex flex-col items-start overflow-hidden relative size-full">
       {showBack && (
@@ -62,14 +64,16 @@ function RootLayout() {
           </div>
         </button>
       )}
-      <NavigationBar
-        currentStep={currentStep}
-        totalSteps={TOTAL_STEPS}
-        onBack={goBack}
-        showBack={showBack}
-        onSectionClick={handleSectionClick}
-        onRestartFlow={handleRestartFlow}
-      />
+      {showNav && (
+        <NavigationBar
+          currentStep={currentStep}
+          totalSteps={TOTAL_STEPS}
+          onBack={goBack}
+          showBack={showBack}
+          onSectionClick={handleSectionClick}
+          onRestartFlow={handleRestartFlow}
+        />
+      )}
       <motion.div
         key={location.pathname}
         initial={{ opacity: 0, y: 16 }}

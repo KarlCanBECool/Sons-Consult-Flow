@@ -187,6 +187,12 @@ export function TestimonialsStep({ onNext }: TestimonialsStepProps) {
   const CARD_HALF = isMobile ? 150 : 260;
   const SIDE_X = isMobile ? 256 : 440;
 
+  const ARROW_EDGE_INSET = 16;
+  const DESKTOP_ARROW_OFFSET = 620;
+  const MOBILE_ARROW_OFFSET = 192;
+  const arrowOffset = isMobile ? MOBILE_ARROW_OFFSET : DESKTOP_ARROW_OFFSET;
+  const arrowInset = `max(${ARROW_EDGE_INSET}px, calc(50% - ${arrowOffset}px))`;
+
   const goPrev = () => {
     prevActiveRef.current = activeIndex;
     setActiveIndex((prev) => (prev - 1 + 3) % 3);
@@ -235,12 +241,12 @@ export function TestimonialsStep({ onNext }: TestimonialsStepProps) {
 
           {/* Carousel — full viewport width */}
           <div className="flex flex-col gap-[24px] items-center w-full max-md:gap-[16px]">
-            <div className="relative w-full flex items-center justify-center">
-              {/* Left arrow — desktop: outer edge of left card; mobile: near left viewport edge */}
+            <div className="relative w-full flex items-center justify-center max-md:px-[16px]">
+              {/* Left arrow — desktop: outer edge of left card; compact: clamped to viewport edge */}
               <button
                 onClick={goPrev}
-                className="absolute z-20 bg-[#4300dd] drop-shadow-[0px_8px_8px_rgba(29,29,29,0.2)] rounded-[9999px] size-[48px] flex items-center justify-center border-none cursor-pointer hover:bg-[#3600b3] transition-colors shrink-0"
-                style={{ left: isMobile ? "calc(50% - 192px)" : "calc(50% - 620px)" }}
+                className="absolute top-1/2 -translate-y-1/2 z-20 bg-[#4300dd] drop-shadow-[0px_8px_8px_rgba(29,29,29,0.2)] rounded-[9999px] size-[48px] flex items-center justify-center border-none cursor-pointer hover:bg-[#3600b3] transition-colors shrink-0"
+                style={{ left: arrowInset }}
               >
                 <div className="relative size-[20px]">
                   <ArrowLeft />
@@ -285,11 +291,11 @@ export function TestimonialsStep({ onNext }: TestimonialsStepProps) {
                 </div>
               </div>
 
-              {/* Right arrow — desktop: outer edge of right card; mobile: near right viewport edge */}
+              {/* Right arrow — desktop: outer edge of right card; compact: clamped to viewport edge */}
               <button
                 onClick={goNext}
-                className="absolute z-20 bg-[#4300dd] drop-shadow-[0px_8px_8px_rgba(29,29,29,0.2)] rounded-[9999px] size-[48px] flex items-center justify-center border-none cursor-pointer hover:bg-[#3600b3] transition-colors shrink-0 rotate-180"
-                style={{ left: isMobile ? "calc(50% + 144px)" : "calc(50% + 572px)" }}
+                className="absolute top-1/2 -translate-y-1/2 z-20 bg-[#4300dd] drop-shadow-[0px_8px_8px_rgba(29,29,29,0.2)] rounded-[9999px] size-[48px] flex items-center justify-center border-none cursor-pointer hover:bg-[#3600b3] transition-colors shrink-0 rotate-180"
+                style={{ right: arrowInset }}
               >
                 <div className="relative size-[20px]">
                   <ArrowLeft />

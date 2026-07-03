@@ -25,17 +25,17 @@ function CheckIcon() {
 export function AcceptStep({ onNext }: AcceptStepProps) {
   return (
     <div className="flex-1 relative w-full overflow-y-auto">
-      <div className="flex flex-col items-center justify-center min-h-full">
-        <div className="content-stretch flex flex-col gap-[24px] items-center justify-center px-px py-[80px] relative w-full max-md:pb-[56px]">
+      <div className="flex flex-col items-center justify-center min-h-full max-md:justify-start max-md:min-h-0">
+        <div className="content-stretch flex flex-col gap-[24px] items-center justify-center px-px py-[80px] relative w-full max-md:items-start max-md:justify-start max-md:gap-0 max-md:py-0 max-md:pt-[112px] max-md:pb-[56px]">
           <div className="content-stretch flex gap-[24px] items-stretch md:items-start justify-center min-h-px min-w-px relative max-w-[1034px] max-md:flex-col max-md:gap-0 max-md:w-full">
 
             {/* Left side - Product image */}
-            <div className="relative rounded-[32px] shrink-0 w-[450px] md:sticky md:top-[40px] md:self-start md:h-[calc(100vh-180px)] md:max-h-[800px] md:overflow-hidden max-md:w-full max-md:h-auto max-md:rounded-[24px] max-md:overflow-hidden">
+            <div className="relative rounded-[32px] shrink-0 w-[450px] md:sticky md:top-[40px] md:self-start md:h-[calc(100vh-180px)] md:max-h-[800px] md:overflow-hidden max-md:w-full max-md:h-[112px] max-md:rounded-[24px] max-md:overflow-hidden">
               {/* Desktop image — absolutely positioned, full height */}
               <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[32px] size-full md:block hidden" src={imgFrame16} />
 
-              {/* Mobile badge image — flows naturally at natural aspect ratio */}
-              <img alt="" className="max-md:block hidden w-full rounded-[24px]" src={imgImageBadge} />
+              {/* Mobile badge image — fixed 112px height banner */}
+              <img alt="" className="max-md:block hidden w-full h-[112px] rounded-[24px] object-cover" src={imgImageBadge} />
 
               {/* Mobile doctor avatar overlay (matches M3PreConsult Figma) */}
               <div className="max-md:flex hidden absolute top-0 left-0 p-[16px]">

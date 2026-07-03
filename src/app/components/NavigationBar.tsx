@@ -146,7 +146,7 @@ export function NavigationBar({ currentStep, totalSteps, onBack, showBack, onSec
           <div className="relative bg-white rounded-[24px] overflow-hidden pb-[24px] pt-[40px] px-[40px] max-w-[500px] w-full mx-[24px] flex flex-col gap-[24px]">
             {/* Text */}
             <div className="flex flex-col gap-[16px] items-start w-full text-[#1d1d1d]">
-              <p className="font-['Aeroport:Bold',sans-serif] leading-[34px] text-[28px] tracking-[-1.4px] w-full">
+              <p className="font-['Aeroport:Bold',sans-serif] leading-[34px] text-[28px] tracking-[-1.4px] w-full max-md:text-[24px] max-md:leading-[28px] max-md:tracking-[-1.08px]">
                 Are you sure you want to leave?
               </p>
               <p className="font-['Aeroport:Light',sans-serif] leading-[20px] not-italic text-[16px] tracking-[-0.3px] w-full">
