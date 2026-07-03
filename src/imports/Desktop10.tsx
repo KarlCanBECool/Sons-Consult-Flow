@@ -1,0 +1,384 @@
+import svgPaths from "./svg-2l6huxpsag";
+
+function Layer() {
+  return (
+    <div className="absolute inset-[0.51%_1.71%_0.4%_1.69%]" data-name="Layer_1">
+      <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 33.8109 49.5464">
+        <g id="Layer_1">
+          <path d={svgPaths.p306b9c80} fill="var(--fill-0, #F7F7F7)" id="Vector" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+function Group() {
+  return (
+    <div className="absolute contents inset-[0.51%_1.71%_0.4%_1.69%]" data-name="Group">
+      <Layer />
+    </div>
+  );
+}
+
+function IconWhite() {
+  return (
+    <div className="h-[50px] overflow-clip relative shrink-0 w-[35px]" data-name="icon_white 1">
+      <Group />
+    </div>
+  );
+}
+
+function Frame() {
+  return <div className="bg-gradient-to-r from-white h-[4px] rounded-br-[999px] rounded-tr-[999px] shrink-0 to-[rgba(255,255,255,0.4)] w-[58px]" />;
+}
+
+function Frame7() {
+  return (
+    <div className="bg-[rgba(255,255,255,0.3)] content-stretch flex items-start overflow-clip relative rounded-[9999px] shrink-0 w-full">
+      <Frame />
+    </div>
+  );
+}
+
+function Frame3() {
+  return (
+    <div className="content-stretch flex flex-[1_0_0] flex-col gap-[4px] items-start justify-center min-h-px min-w-px relative">
+      <p className="font-['Aeroport:Light',sans-serif] leading-[20px] not-italic relative shrink-0 text-[#f7f7f7] text-[16px] tracking-[-0.3px] whitespace-nowrap">You</p>
+      <Frame7 />
+    </div>
+  );
+}
+
+function Frame6() {
+  return (
+    <div className="content-stretch flex flex-[1_0_0] items-center min-h-px min-w-px relative">
+      <Frame3 />
+    </div>
+  );
+}
+
+function Frame2() {
+  return <div className="bg-[rgba(255,255,255,0.3)] flex-[1_0_0] h-[4px] min-h-px min-w-px" />;
+}
+
+function Frame9() {
+  return (
+    <div className="content-stretch flex items-start overflow-clip relative rounded-[9999px] shrink-0 w-full">
+      <Frame2 />
+    </div>
+  );
+}
+
+function Frame4() {
+  return (
+    <div className="content-stretch flex flex-[1_0_0] flex-col gap-[4px] items-start justify-center min-h-px min-w-px relative">
+      <p className="font-['Aeroport:Light',sans-serif] leading-[20px] not-italic relative shrink-0 text-[16px] text-[rgba(255,255,255,0.6)] tracking-[-0.3px] whitespace-nowrap">Your plan</p>
+      <Frame9 />
+    </div>
+  );
+}
+
+function Frame8() {
+  return (
+    <div className="content-stretch flex flex-[1_0_0] items-center min-h-px min-w-px relative">
+      <Frame4 />
+    </div>
+  );
+}
+
+function Frame12() {
+  return <div className="bg-[rgba(255,255,255,0.3)] flex-[1_0_0] h-[4px] min-h-px min-w-px" />;
+}
+
+function Frame11() {
+  return (
+    <div className="content-stretch flex items-start overflow-clip relative rounded-[9999px] shrink-0 w-full">
+      <Frame12 />
+    </div>
+  );
+}
+
+function Frame5() {
+  return (
+    <div className="content-stretch flex flex-[1_0_0] flex-col gap-[4px] items-start justify-center min-h-px min-w-px relative">
+      <p className="font-['Aeroport:Light',sans-serif] leading-[20px] not-italic relative shrink-0 text-[16px] text-[rgba(255,255,255,0.6)] tracking-[-0.3px] whitespace-nowrap">Final steps</p>
+      <Frame11 />
+    </div>
+  );
+}
+
+function Frame10() {
+  return (
+    <div className="content-stretch flex flex-[1_0_0] items-center min-h-px min-w-px relative">
+      <Frame5 />
+    </div>
+  );
+}
+
+function Frame17() {
+  return (
+    <div className="content-stretch flex flex-[1_0_0] gap-[24px] items-center min-h-px min-w-px relative">
+      <Frame6 />
+      <Frame8 />
+      <Frame10 />
+    </div>
+  );
+}
+
+function Frame1() {
+  return (
+    <div className="content-stretch flex flex-[1_0_0] gap-[48px] items-center min-h-px min-w-px relative">
+      <IconWhite />
+      <Frame17 />
+      <div className="opacity-30 relative shrink-0 size-[32px]" data-name="X">
+        <div className="absolute inset-[17.17%_17.18%_17.18%_17.18%]" data-name="Vector">
+          <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 21.0077 21.009">
+            <path d={svgPaths.p299d600} fill="var(--fill-0, #E6E6E6)" id="Vector" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Frame16() {
+  return (
+    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
+      <p className="font-['Aeroport:Bold',sans-serif] leading-[34px] not-italic relative shrink-0 text-[28px] text-black tracking-[-1.4px] w-full whitespace-pre-wrap">
+        {`Which image best describes your `}
+        <br aria-hidden="true" />
+        hair loss
+      </p>
+    </div>
+  );
+}
+
+function Frame15() {
+  return (
+    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
+      <Frame16 />
+    </div>
+  );
+}
+
+function Frame18() {
+  return (
+    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
+      <Frame15 />
+    </div>
+  );
+}
+
+function Layer1() {
+  return (
+    <div className="col-1 h-[119.987px] ml-0 mt-0 relative row-1 w-[100px]" data-name="Layer 1 00000026152046639907358080000001335567573354133633">
+      <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 100 119.987">
+        <g id="Layer 1 00000026152046639907358080000001335567573354133633">
+          <path d={svgPaths.p2f308580} fill="var(--fill-0, #1C1C1C)" id="<Path>" />
+          <path d={svgPaths.p2e42ec70} fill="var(--fill-0, #1C1C1C)" id="<Path>_2" />
+          <path d={svgPaths.p18799600} fill="var(--fill-0, #1C1C1C)" id="<Path>_3" />
+          <path d={svgPaths.p36654f80} fill="var(--fill-0, #1C1C1C)" id="<Path>_4" />
+          <path d={svgPaths.p41b8580} fill="var(--fill-0, #CFDF69)" id="<Path>_5" />
+          <path clipRule="evenodd" d={svgPaths.p32a5a80} fill="var(--fill-0, #1C1C1C)" fillRule="evenodd" id="<Compound Path>" />
+          <path d={svgPaths.p3d5d5040} fill="var(--fill-0, #CFDF69)" id="<Path>_6" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+function Group1() {
+  return (
+    <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-name="<Group>">
+      <Layer1 />
+    </div>
+  );
+}
+
+function Frame19() {
+  return (
+    <div className="bg-[#f7f7f7] flex-[1_0_0] h-full min-h-px min-w-px relative rounded-[24px]">
+      <div className="flex flex-col items-center justify-center size-full">
+        <div className="content-stretch flex flex-col gap-[16px] items-center justify-center p-[16px] relative size-full">
+          <Group1 />
+          <p className="font-['Aeroport:Light','Noto_Sans:Light',sans-serif] leading-[20px] min-w-full relative shrink-0 text-[16px] text-black text-center tracking-[-0.3px] w-[min-content]" style={{ fontVariationSettings: "'CTGR' 0, 'wdth' 100, 'wght' 300" }}>
+            Temples only (receding at the front)
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Group2() {
+  return (
+    <div className="h-[120.066px] relative shrink-0 w-[100px]">
+      <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 100 120.066">
+        <g id="Group 2">
+          <path d={svgPaths.p274f0870} fill="var(--fill-0, #1C1C1C)" id="<Path>" />
+          <path d={svgPaths.pdc46600} fill="var(--fill-0, #1C1C1C)" id="<Path>_2" />
+          <path d={svgPaths.p20f14500} fill="var(--fill-0, #1C1C1C)" id="<Path>_3" />
+          <path d={svgPaths.p36b02800} fill="var(--fill-0, #1C1C1C)" id="<Path>_4" />
+          <path d={svgPaths.p1b166c80} fill="var(--fill-0, #CFDF69)" id="<Path>_5" />
+          <path clipRule="evenodd" d={svgPaths.p23937800} fill="var(--fill-0, #1C1C1C)" fillRule="evenodd" id="<Compound Path>" />
+          <path d={svgPaths.pcb1a700} fill="var(--fill-0, #CFDF69)" id="<Path>_6" />
+          <path d={svgPaths.p775f800} fill="var(--fill-0, #CFDF69)" id="<Path>_7" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+function Frame20() {
+  return (
+    <div className="bg-[#f7f7f7] flex-[1_0_0] h-full min-h-px min-w-px relative rounded-[24px]">
+      <div className="flex flex-col items-center justify-center size-full">
+        <div className="content-stretch flex flex-col gap-[16px] items-center justify-center p-[16px] relative size-full">
+          <Group2 />
+          <p className="font-['Aeroport:Light','Noto_Sans:Light',sans-serif] leading-[20px] min-w-full relative shrink-0 text-[16px] text-black text-center tracking-[-0.3px] w-[min-content]" style={{ fontVariationSettings: "'CTGR' 0, 'wdth' 100, 'wght' 300" }}>
+            Temples/Crown
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Frame21() {
+  return (
+    <div className="content-stretch flex gap-[24px] h-[250px] items-start relative shrink-0 w-full">
+      <Frame19 />
+      <Frame20 />
+    </div>
+  );
+}
+
+function Layer2() {
+  return (
+    <div className="col-1 h-[60.183px] ml-0 mt-0 relative row-1 w-[60.212px]" data-name="Layer 1 00000123436215828419123700000010773396819415326908">
+      <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 60.2115 60.1832">
+        <g id="Layer 1 00000123436215828419123700000010773396819415326908">
+          <path d={svgPaths.pd37d580} fill="var(--fill-0, #1C1C1C)" id="<Path>" />
+          <path d={svgPaths.p16295780} fill="var(--fill-0, #1C1C1C)" id="<Path>_2" />
+          <path d={svgPaths.p11e78a80} fill="var(--fill-0, #1C1C1C)" id="<Path>_3" />
+          <path d={svgPaths.p2a3c8df0} fill="var(--fill-0, #1C1C1C)" id="<Path>_4" />
+          <path d={svgPaths.p3bfc7b80} fill="var(--fill-0, #1C1C1C)" id="<Path>_5" />
+          <path d={svgPaths.p9cb2fb0} fill="var(--fill-0, #1C1C1C)" id="<Compound Path>" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+function Group3() {
+  return (
+    <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[19.89%] mt-[43.39%] place-items-start relative row-1" data-name="<Group>">
+      <Layer2 />
+    </div>
+  );
+}
+
+function Group4() {
+  return (
+    <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0">
+      <Group3 />
+      <div className="col-1 h-[119.986px] ml-0 mt-0 relative row-1 w-[100px]" data-name="Subtract">
+        <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 100 119.986">
+          <path d={svgPaths.p20fd22c0} fill="var(--fill-0, #1C1C1C)" id="Subtract" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function Frame24() {
+  return (
+    <div className="bg-[#f7f7f7] flex-[1_0_0] h-full min-h-px min-w-px relative rounded-[24px]">
+      <div className="flex flex-col items-center justify-center size-full">
+        <div className="content-stretch flex flex-col gap-[16px] items-center justify-center p-[16px] relative size-full">
+          <Group4 />
+          <p className="font-['Aeroport:Light',sans-serif] leading-[20px] min-w-full not-italic relative shrink-0 text-[16px] text-black text-center tracking-[-0.3px] w-[min-content]">Random patches</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Group5() {
+  return (
+    <div className="h-[120.066px] relative shrink-0 w-[100px]">
+      <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 100 120.066">
+        <g id="Group 3">
+          <path d={svgPaths.p2762c80} fill="var(--fill-0, #1C1C1C)" id="<Path>" />
+          <path d={svgPaths.p2a5c9900} fill="var(--fill-0, #1C1C1C)" id="<Path>_2" />
+          <path d={svgPaths.p18912500} fill="var(--fill-0, #1C1C1C)" id="<Path>_3" />
+          <path d={svgPaths.p32060980} fill="var(--fill-0, #1C1C1C)" id="<Path>_4" />
+          <path clipRule="evenodd" d={svgPaths.p7246100} fill="var(--fill-0, #1C1C1C)" fillRule="evenodd" id="<Compound Path>" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+function Frame25() {
+  return (
+    <div className="bg-[#f7f7f7] flex-[1_0_0] h-full min-h-px min-w-px relative rounded-[24px]">
+      <div className="flex flex-col items-center justify-center size-full">
+        <div className="content-stretch flex flex-col gap-[16px] items-center justify-center p-[16px] relative size-full">
+          <Group5 />
+          <p className="font-['Aeroport:Light',sans-serif] leading-[20px] min-w-full not-italic relative shrink-0 text-[16px] text-black text-center tracking-[-0.3px] w-[min-content]">Completely bald</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Frame22() {
+  return (
+    <div className="content-stretch flex gap-[24px] h-[250px] items-start relative shrink-0 w-full">
+      <Frame24 />
+      <Frame25 />
+    </div>
+  );
+}
+
+function Frame23() {
+  return (
+    <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
+      <Frame21 />
+      <Frame22 />
+    </div>
+  );
+}
+
+function Frame14() {
+  return (
+    <div className="content-stretch flex flex-col gap-[40px] h-[763px] items-end overflow-clip px-[40px] py-[32px] relative rounded-[32px] shrink-0 w-[600px]">
+      <Frame18 />
+      <Frame23 />
+    </div>
+  );
+}
+
+function Frame13() {
+  return (
+    <div className="flex-[1_0_0] min-h-px min-w-px relative w-full">
+      <div className="flex flex-col items-center justify-center overflow-clip rounded-[inherit] size-full">
+        <div className="content-stretch flex flex-col items-center justify-center px-px py-[80px] relative size-full">
+          <Frame14 />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function Desktop() {
+  return (
+    <div className="bg-[#e6e6e6] content-stretch flex flex-col gap-px items-start overflow-clip relative rounded-[32px] size-full" data-name="Desktop - 10">
+      <div className="bg-[#25272a] content-stretch flex h-[100px] items-center overflow-clip px-[64px] py-[25px] relative shrink-0 w-[1440px]" data-name="Navigational-Bar">
+        <Frame1 />
+      </div>
+      <Frame13 />
+    </div>
+  );
+}
