@@ -157,7 +157,7 @@ function LoginPrompt({ className = "" }: { className?: string }) {
 
 export function AcceptStep({ onNext }: AcceptStepProps) {
   return (
-    <StepScrollLayout className="min-h-full max-md:min-h-0 justify-center max-md:justify-start gap-[8px] max-md:gap-0">
+    <StepScrollLayout className="min-h-full max-md:min-h-0 justify-center max-md:justify-start gap-[24px] max-md:gap-0">
       <div className="flex gap-[24px] items-stretch lg:items-end justify-center max-w-[1034px] max-lg:flex-col max-lg:gap-[32px] max-lg:w-full w-full max-md:pb-[40px]">
         <ProductImageColumn />
 
