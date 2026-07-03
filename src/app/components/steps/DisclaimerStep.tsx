@@ -35,7 +35,7 @@ export function DisclaimerStep({ onNext }: DisclaimerStepProps) {
   return (
     <QuestionStepLayout
       footer={
-        <div className="flex flex-col gap-[16px] w-full">
+        <div className="flex flex-col gap-[24px] w-full">
           <button
             onClick={onNext}
             disabled={!confirmed}
@@ -47,29 +47,32 @@ export function DisclaimerStep({ onNext }: DisclaimerStepProps) {
               Continue
             </p>
           </button>
-          <FormButtonExpand
-            label="NHS Summary of Care"
-            description={
-              <>
-                {FINASTERIDE_DISCLAIMER}{" "}
-                <span className="text-[#4300dd] cursor-pointer hover:underline">Read more</span>
-              </>
-            }
-            checkboxLabel="I Agree"
-            isExpanded={expandedNhs}
-            isChecked={nhsAgreed}
-            onToggleExpand={() => setExpandedNhs(!expandedNhs)}
-            onToggleCheck={() => setNhsAgreed(!nhsAgreed)}
-          />
-          <FormButtonExpand
-            label="GP Consent"
-            description="Do you consent to us sharing consultation information with your GP?"
-            checkboxLabel="I agree"
-            isExpanded={expandedGp}
-            isChecked={gpAgreed}
-            onToggleExpand={() => setExpandedGp(!expandedGp)}
-            onToggleCheck={() => setGpAgreed(!gpAgreed)}
-          />
+
+          <div className="flex flex-col gap-[16px] w-full">
+            <FormButtonExpand
+              label="NHS Summary of Care"
+              description={
+                <>
+                  {FINASTERIDE_DISCLAIMER}{" "}
+                  <span className="text-[#4300dd] cursor-pointer hover:underline">Read more</span>
+                </>
+              }
+              checkboxLabel="I Agree"
+              isExpanded={expandedNhs}
+              isChecked={nhsAgreed}
+              onToggleExpand={() => setExpandedNhs(!expandedNhs)}
+              onToggleCheck={() => setNhsAgreed(!nhsAgreed)}
+            />
+            <FormButtonExpand
+              label="GP Consent"
+              description="Do you consent to us sharing consultation information with your GP?"
+              checkboxLabel="I agree"
+              isExpanded={expandedGp}
+              isChecked={gpAgreed}
+              onToggleExpand={() => setExpandedGp(!expandedGp)}
+              onToggleCheck={() => setGpAgreed(!gpAgreed)}
+            />
+          </div>
         </div>
       }
     >
