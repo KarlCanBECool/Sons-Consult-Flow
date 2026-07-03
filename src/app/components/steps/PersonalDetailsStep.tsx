@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import imgFrame16 from "figma:asset/2159ead89fb0d4a41fb7c00c18bcadbe9a4ee1c4.png";
 import imgImage3 from "figma:asset/f150bc76379a8dab467bafe928a6f94353663adc.png";
 import imgImage4 from "figma:asset/f17f60e674660310781be4bb6c7e0a27e75f8686.png";
+import { StepScrollLayout } from "../StepScrollLayout";
 
 interface PersonalDetailsStepProps {
   onNext: () => void;
@@ -23,6 +24,17 @@ function Checkbox({ checked, onClick }: { checked: boolean; onClick: () => void 
   );
 }
 
+function SubmitButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      className="bg-[#4300dd] content-stretch flex h-[52px] max-md:h-[58px] items-center justify-center px-[32px] py-[16px] relative rounded-[9999px] shrink-0 w-full cursor-pointer hover:bg-[#3600b3] transition-colors border-none"
+    >
+      <p className="font-['Aeroport:Bold',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#f7f7f7] text-[18px] text-center tracking-[-0.4px] whitespace-nowrap">Get my personalised plan</p>
+    </button>
+  );
+}
+
 export function PersonalDetailsStep({ onNext }: PersonalDetailsStepProps) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -36,19 +48,19 @@ export function PersonalDetailsStep({ onNext }: PersonalDetailsStepProps) {
   const [whatsappChecked, setWhatsappChecked] = useState(false);
 
   return (
-    <div className="flex-1 relative w-full min-h-0">
-      <div className="flex flex-col items-center overflow-y-auto size-full">
-        <div className="content-stretch flex flex-col items-center px-px py-[80px] relative w-full">
-          <div className="content-stretch flex gap-[24px] items-start justify-center min-h-px min-w-px relative max-md:flex-col max-md:gap-0">
+    <StepScrollLayout>
+          <div className="content-stretch flex gap-[24px] items-start justify-center min-h-px min-w-px relative max-md:flex-col max-md:gap-[32px] max-md:w-full">
             {/* Left side - Form */}
-            <div className="h-full relative rounded-[32px] shrink-0 w-[559px] max-md:w-full">
-              <div className="flex flex-col items-end justify-center rounded-[inherit] size-full">
-                <div className="content-stretch flex flex-col gap-[32px] items-end justify-center relative size-full px-[16px] pt-[56px] pb-[0px]">
+            <div className="h-full relative rounded-[32px] shrink-0 w-[559px] max-md:h-auto max-md:w-full">
+              <div className="flex flex-col items-end justify-center rounded-[inherit] size-full max-md:items-stretch max-md:h-auto">
+                <div className="content-stretch flex flex-col gap-[32px] items-end justify-center relative size-full px-[16px] pt-[56px] pb-[0px] max-md:h-auto max-md:items-stretch max-md:justify-start max-md:px-0 max-md:pt-0">
                   {/* Header + Inputs */}
                   <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
-                    <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
-                      <p className="font-['Aeroport:Light',sans-serif] leading-[20px] relative shrink-0 text-[#4300dd] text-[16px] tracking-[-0.3px] w-full">Almost there!</p>
-                      <p className="font-['Aeroport:Bold',sans-serif] leading-[34px] not-italic relative shrink-0 text-[28px] text-black tracking-[-1.4px] w-full">Last step before your personalised treatment plan</p>
+                    <div className="content-stretch flex flex-col gap-[8px] max-md:gap-[16px] items-start relative shrink-0 w-full">
+                      <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full">
+                        <p className="font-['Aeroport:Light',sans-serif] leading-[20px] relative shrink-0 text-[#4300dd] text-[16px] tracking-[-0.3px] w-full">Almost there!</p>
+                        <p className="font-['Aeroport:Bold',sans-serif] leading-[34px] not-italic relative shrink-0 text-[28px] text-black tracking-[-1.4px] w-full max-md:text-[24px] max-md:leading-[28px] max-md:tracking-[-1.08px]">Last step before your personalised treatment plan</p>
+                      </div>
                       <p className="font-['Aeroport:Light',sans-serif] leading-[28px] not-italic relative shrink-0 text-[16px] text-[rgba(0,0,0,0.6)] tracking-[-0.3px] w-full">Please enter your details to continue</p>
                     </div>
                     <div className="content-stretch flex flex-col gap-[32px] items-start relative shrink-0 w-full">
@@ -175,30 +187,35 @@ export function PersonalDetailsStep({ onNext }: PersonalDetailsStepProps) {
                     </div>
                   </div>
 
-                  {/* Submit button */}
-                  <button
-                    onClick={onNext}
-                    className="bg-[#4300dd] content-stretch flex h-[52px] items-center justify-center px-[32px] py-[16px] relative rounded-[9999px] shrink-0 w-full cursor-pointer hover:bg-[#3600b3] transition-colors border-none"
-                  >
-                    <p className="font-['Aeroport:Bold',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#f7f7f7] text-[18px] text-center tracking-[-0.4px] whitespace-nowrap">Get my personalised plan</p>
-                  </button>
+                  {/* Submit button — desktop only; mobile button is a direct sibling below */}
+                  <div className="max-md:hidden w-full">
+                    <SubmitButton onClick={onNext} />
+                  </div>
                 </div>
               </div>
             </div>
 
+            {/* Submit button — mobile only (Figma mainContainer sibling before image) */}
+            <div className="md:hidden w-full shrink-0">
+              <SubmitButton onClick={onNext} />
+            </div>
+
             {/* Right side - Image with testimonial */}
-            <div className="relative rounded-[32px] shrink-0 w-[450px] overflow-hidden md:sticky md:top-[40px] md:self-start md:h-[calc(100vh-180px)] md:max-h-[800px] max-md:w-full max-md:h-[300px]">
+            <div className="relative rounded-[32px] shrink-0 w-[450px] overflow-hidden md:sticky md:top-[40px] md:self-start md:h-[calc(100vh-180px)] md:max-h-[800px] max-md:h-auto max-md:w-full max-md:p-[24px] max-md:flex max-md:flex-col max-md:items-center max-md:justify-end">
               <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[32px]">
-                <img alt="" className="absolute inset-0 w-full h-full object-cover" src={imgFrame16} />
+                <img alt="" className="absolute inset-0 w-full h-full object-cover md:block hidden" src={imgFrame16} />
+                <img alt="" className="absolute h-[111.68%] left-[-17.82%] max-w-none top-[-11.73%] w-[151.49%] max-md:block hidden" src={imgFrame16} />
               </div>
-              <div className="flex flex-col items-center justify-end rounded-[inherit] size-full">
-                <div className="content-stretch flex flex-col items-center justify-end p-[24px] relative size-full">
+              <div className="flex flex-col items-center justify-end rounded-[inherit] size-full max-md:relative max-md:z-10 max-md:size-auto max-md:w-full">
+                <div className="content-stretch flex flex-col items-center justify-end p-[24px] relative size-full max-md:p-0 max-md:w-full">
                   <div className="relative shrink-0 w-full">
                     <div className="bg-white content-stretch flex flex-col gap-[16px] items-start overflow-clip px-[24px] py-[32px] relative rounded-[12px] w-full">
-                      <p className="font-['Aeroport:Light','Noto_Sans:Light',sans-serif] leading-[20px] relative shrink-0 text-[#1d1d1d] text-[16px] tracking-[-0.3px] w-full" style={{ fontVariationSettings: '"CTGR" 0, "wdth" 100, "wght" 300' }}>
-                        "Great company with great products. I use the thickening clay every day and it's brilliant!! Communication and customer service is next level. Great company and I love using their products!"
-                      </p>
-                      <p className="font-['Aeroport:Bold',sans-serif] not-italic relative shrink-0 text-[#1d1d1d] text-[16px] leading-[20px] tracking-[-0.3px] w-full">− Harry Llewellyn</p>
+                      <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
+                        <p className="font-['Aeroport:Light','Noto_Sans:Light',sans-serif] leading-[20px] relative shrink-0 text-[#1d1d1d] text-[16px] tracking-[-0.3px] w-full" style={{ fontVariationSettings: '"CTGR" 0, "wdth" 100, "wght" 300' }}>
+                          "Great company with great products. I use the thickening clay every day and it's brilliant!! Communication and customer service is next level. Great company and I love using their products!"
+                        </p>
+                        <p className="font-['Aeroport:Bold',sans-serif] not-italic relative shrink-0 text-[#1d1d1d] text-[16px] leading-[20px] tracking-[-0.3px] w-full">− Harry Llewellyn</p>
+                      </div>
                       <div className="content-stretch flex items-start justify-between relative shrink-0 w-full">
                         <div className="h-[20px] relative shrink-0 w-[106px]">
                           <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -217,8 +234,6 @@ export function PersonalDetailsStep({ onNext }: PersonalDetailsStepProps) {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+    </StepScrollLayout>
   );
 }
