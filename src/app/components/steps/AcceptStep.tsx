@@ -69,10 +69,10 @@ export function AcceptStep({ onNext }: AcceptStepProps) {
         </div>
 
         {/* Right side - Content */}
-        <div className="h-full relative rounded-[32px] shrink-0 w-[559px] max-lg:w-full">
-          <div className="flex flex-col items-end rounded-[inherit] size-full">
-            <div className="content-stretch flex flex-col gap-[16px] items-end px-[40px] py-[32px] relative size-full my-auto max-md:px-0 max-md:py-[32px]">
-              <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-h-px min-w-px relative w-full mb-[16px]">
+        <div className="h-full relative rounded-[32px] shrink-0 w-[559px] max-lg:h-auto max-lg:w-full">
+          <div className="flex flex-col items-end rounded-[inherit] size-full max-lg:h-auto">
+            <div className="content-stretch flex flex-col gap-[16px] items-end px-[40px] py-[32px] relative w-full max-lg:h-auto max-md:px-0 max-md:py-[32px]">
+              <div className="content-stretch flex flex-col items-start min-h-px min-w-px relative w-full mb-[16px]">
                 <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
                   <div className="font-['Aeroport:Bold',sans-serif] leading-[40px] not-italic text-[36px] text-black tracking-[-1.4px] w-full max-md:text-[24px] max-md:leading-[28px]">
                     <p className="mb-0">Sons is with you every step</p>
