@@ -148,7 +148,7 @@ function LargeCard({ beforeImg, afterImg, name, age, treatment, duration, produc
             <p className="font-['Aeroport:Light',sans-serif] leading-[20px] text-[#25272a] text-[16px] tracking-[-0.3px]">{treatment}</p>
             <p className="font-['Aeroport:Light',sans-serif] leading-[20px] text-[rgba(0,0,0,0.6)] text-[16px] tracking-[-0.3px]">{duration}</p>
           </div>
-          <div className="h-[72px] relative shrink-0 w-[123px] overflow-hidden">
+          <div className="h-[72px] relative shrink-0 w-[123px] overflow-hidden max-md:hidden">
             <img alt="Product" className="absolute inset-0 w-full h-full object-contain" src={productImg} />
           </div>
         </div>
