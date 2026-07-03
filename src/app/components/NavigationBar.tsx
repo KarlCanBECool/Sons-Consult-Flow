@@ -79,7 +79,7 @@ function ProgressSection({ label, progress, completed, onClick }: { label: strin
         <div className="bg-[rgba(255,255,255,0.3)] content-stretch flex items-start overflow-clip relative rounded-[9999px] shrink-0 w-full">
           <div
             className={`h-[4px] rounded-br-[999px] rounded-tr-[999px] shrink-0 transition-all duration-500 ease-out ${
-              progress >= 100 ? "bg-[#f7f7f7]" : "bg-gradient-to-r from-white to-[rgba(255,255,255,0.4)]"
+              progress >= 100 ? "bg-[#f7f7f7]" : "bg-white"
             }`}
             style={{ width: `${Math.min(progress, 100)}%` }}
           />
