@@ -6,10 +6,11 @@ import imgFrame70 from "figma:asset/2d8d00a0d34802a9b5c4ca8d0380f59f2c18256c.png
 import imgFrame71 from "figma:asset/5c41262d3903fe3bab04b0e399dafaafcc688f78.png";
 import imgImage6 from "figma:asset/8b0d9d4fbacb5055c6920a3a468059218be6c780.png";
 import imgFrame147 from "figma:asset/fbc90d1f0c54c12f805fa6ac75bc9741b62df7ea.png";
+import { WidePageLayout } from "../WidePageLayout";
+import { h1MobileScale } from "../../constants/layout";
 
 interface PlanStepProps {
   onNext: () => void;
-  onBack?: () => void;
 }
 
 function CheckCircleIcon() {
@@ -36,34 +37,17 @@ function PlusTagIcon() {
   );
 }
 
-export function PlanStep({ onNext, onBack }: PlanStepProps) {
+export function PlanStep({ onNext }: PlanStepProps) {
   const [selectedPlan, setSelectedPlan] = useState<"6" | "3">("6");
 
   return (
-    <div className="flex-1 relative w-full min-h-0 overflow-y-auto">
-      <div className="flex flex-col items-center w-full">
-        <div className="content-stretch flex flex-col gap-[32px] items-center px-[96px] py-[80px] relative w-full">
-          {/* Back button */}
-          {onBack && (
-            <div className="absolute left-[64px] top-[32px] z-10">
-              <button
-                onClick={onBack}
-                className="relative shrink-0 size-[32px] cursor-pointer bg-transparent border-none p-0 hover:opacity-60 transition-opacity"
-              >
-                <div className="absolute inset-[17.18%_10.94%_17.18%_10.93%]">
-                  <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 25.0012 21.0052">
-                    <path d={svgPaths.p2d947a00} fill="#25272A" />
-                  </svg>
-                </div>
-              </button>
-            </div>
-          )}
+    <WidePageLayout className="gap-[32px]">
           {/* Header */}
           <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full max-w-[1300px]">
-            <div className="content-stretch flex items-center justify-between relative shrink-0 w-full">
+            <div className="content-stretch flex items-center justify-between relative shrink-0 w-full max-lg:flex-col max-lg:items-start max-lg:gap-[16px]">
               <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-[#25272a]">
-                <p className="font-['Aeroport:Bold',sans-serif] leading-[40px] not-italic relative shrink-0 text-[36px] tracking-[-1.4px] whitespace-nowrap">John, your personalised plan is ready</p>
-                <p className="font-['Aeroport:Light',sans-serif] leading-[20px] relative shrink-0 text-[16px] tracking-[-0.3px] whitespace-nowrap">
+                <p className={`font-['Aeroport:Bold',sans-serif] leading-[40px] not-italic relative shrink-0 text-[36px] tracking-[-1.4px] whitespace-nowrap max-lg:whitespace-normal ${h1MobileScale}`}>John, your personalised plan is ready</p>
+                <p className="font-['Aeroport:Light',sans-serif] leading-[20px] relative shrink-0 text-[16px] tracking-[-0.3px] whitespace-nowrap max-lg:whitespace-normal">
                   Based on your responses in the consultation, our medical team recommend the following plan for you:
                 </p>
               </div>
@@ -77,9 +61,9 @@ export function PlanStep({ onNext, onBack }: PlanStepProps) {
             {/* Plan card */}
             <div className="bg-[#e0e0e0] relative rounded-[40px] shrink-0 w-full max-w-[1400px]">
               <div className="flex flex-row justify-center size-full">
-                <div className="content-stretch flex gap-[80px] items-start justify-center pl-[24px] pt-[24px] pb-[24px] pr-[40px] relative w-full">
+                <div className="content-stretch flex gap-[80px] items-start justify-center pl-[24px] pt-[24px] pb-[24px] pr-[40px] relative w-full max-lg:flex-col max-lg:gap-[32px]">
                   {/* Left - Product details */}
-                  <div className="bg-[#f7f7f7] content-stretch flex flex-col gap-[32px] items-start px-[40px] py-[56px] relative rounded-[24px] w-full max-w-[600px] mr-auto">
+                  <div className="bg-[#f7f7f7] content-stretch flex flex-col gap-[32px] items-start px-[40px] py-[40px] relative rounded-[24px] w-full max-w-[600px] mr-auto max-lg:max-w-none max-lg:mr-0">
                     {/* Most effective tag */}
                     <div className="absolute bg-[#25272a] content-stretch flex h-[24px] items-center justify-center right-[24px] px-[12px] py-px rounded-[9999px] top-[-12px] w-[130px]">
                       <p className="font-['Aeroport:Bold',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#f7f7f7] text-[12px] text-center tracking-[-0.3px] whitespace-nowrap">Most effective</p>
@@ -331,16 +315,14 @@ export function PlanStep({ onNext, onBack }: PlanStepProps) {
 
           {/* FAQ Section */}
           <div className="mt-[32px] w-full max-w-[1300px]">
-            <p className="font-['Aeroport:Bold',sans-serif] leading-[40px] text-[#25272a] text-[28px] tracking-[-1.4px]">Frequently asked questions</p>
+            <p className={`font-['Aeroport:Bold',sans-serif] leading-[40px] text-[#25272a] text-[28px] tracking-[-1.4px] max-md:leading-[28px] ${h1MobileScale}`}>Frequently asked questions</p>
             <div className="mt-[24px] bg-[#f7f7f7] rounded-[24px] px-[40px]">
               {faqData.map((item) => (
                 <FAQItem key={item.question} question={item.question} answer={item.answer} />
               ))}
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+    </WidePageLayout>
   );
 }
 

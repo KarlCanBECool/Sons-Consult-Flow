@@ -79,12 +79,12 @@ function HairLossOption({ icon, label, onClick, isSelected }: {
   return (
     <button
       onClick={onClick}
-      className={`bg-white flex-[1_0_0] h-full min-h-px min-w-px relative rounded-[24px] cursor-pointer hover:bg-[#f7f7f7] transition-all border-none max-md:w-full max-md:min-h-[180px] max-md:h-auto ${
+      className={`bg-white flex-[1_0_0] h-full min-h-px min-w-px relative rounded-[24px] cursor-pointer hover:bg-[#f7f7f7] transition-all border-none max-md:w-full max-md:h-fit max-md:flex-none ${
         isSelected ? "ring-2 ring-[#4300dd]" : ""
       }`}
     >
-      <div className="flex flex-col items-center justify-center size-full">
-        <div className="content-stretch flex flex-col gap-[16px] items-center justify-center px-[16px] py-[24px] relative size-full">
+      <div className="flex flex-col items-center justify-center size-full max-md:size-auto">
+        <div className="content-stretch flex flex-col gap-[16px] items-center justify-center px-[16px] py-[24px] relative size-full max-md:size-auto">
           {icon}
           <p className="font-['Aeroport:Light',sans-serif] leading-[20px] min-w-full text-[16px] text-[#1d1d1d] text-center tracking-[-0.3px]">
             {label}

@@ -66,7 +66,7 @@ function CompactCheckbox({
       role="checkbox"
     >
       <div
-        className={`relative rounded-[8px] shrink-0 size-[24px] transition-colors ${checked ? "bg-[#00b692]" : "bg-[#fdfdff]"}`}
+        className={`relative rounded-[8px] shrink-0 size-[28px] transition-colors ${checked ? "bg-[#00b692]" : "bg-[#fdfdff]"}`}
       >
         {!checked && (
           <div className="absolute inset-0 rounded-[inherit] shadow-[inset_0px_4px_4px_0px_rgba(0,0,0,0.11)]" />

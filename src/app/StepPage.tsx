@@ -147,7 +147,7 @@ export function StepPage() {
     case 12:
       return <LoadingStep onNext={goNext} />;
     case 13:
-      return <PlanStep onNext={goNext} onBack={goBack} />;
+      return <PlanStep onNext={goNext} />;
     case 14:
       return <ReviewStep onGoToPlan={() => navigate("/step/13")} onCheckout={goNext} />;
     case 15:

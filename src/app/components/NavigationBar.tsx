@@ -103,7 +103,7 @@ export function NavigationBar({ currentStep, totalSteps, onBack, showBack, onSec
   return (
     <>
       <div className="sticky top-0 z-50 relative shrink-0 w-full">
-        <div className="bg-[#25272a] content-stretch flex h-[100px] items-center overflow-clip px-[64px] py-[25px] relative shrink-0 w-full max-md:h-auto max-md:px-[16px] max-md:py-[16px]">
+        <div className="bg-[#25272a] content-stretch flex h-[100px] items-center overflow-clip px-nav-gutter py-[25px] relative shrink-0 w-full max-md:h-auto max-md:px-page-gutter max-md:py-[16px]">
           <div className="content-stretch flex flex-[1_0_0] gap-[48px] items-center min-h-px min-w-px relative max-md:gap-[24px]">
             <IconWhite />
             {isSimplifiedNav ? (
@@ -160,13 +160,13 @@ export function NavigationBar({ currentStep, totalSteps, onBack, showBack, onSec
                   setShowExitModal(false);
                   onRestartFlow?.();
                 }}
-                className="h-[58px] px-[32px] py-[16px] rounded-[9999px] border-none bg-transparent cursor-pointer font-['Aeroport:Bold',sans-serif] text-[18px] text-[#373737] tracking-[-0.4px] hover:bg-[#f0f0f0] transition-colors"
+                className="h-[52px] px-[32px] py-[16px] rounded-[9999px] border-none bg-transparent cursor-pointer font-['Aeroport:Bold',sans-serif] text-[18px] text-[#373737] tracking-[-0.4px] hover:bg-[#f0f0f0] transition-colors"
               >
                 Leave
               </button>
               <button
                 onClick={() => setShowExitModal(false)}
-                className="bg-[#4000e6] h-[58px] px-[32px] py-[16px] rounded-[9999px] border-none cursor-pointer font-['Aeroport:Bold',sans-serif] text-[18px] text-white tracking-[-0.4px] hover:bg-[#3300c4] transition-colors"
+                className="bg-[#4000e6] h-[52px] px-[32px] py-[16px] rounded-[9999px] border-none cursor-pointer font-['Aeroport:Bold',sans-serif] text-[18px] text-white tracking-[-0.4px] hover:bg-[#3300c4] transition-colors"
               >
                 Cancel
               </button>

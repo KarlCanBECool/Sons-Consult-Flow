@@ -5,6 +5,8 @@ import svgPathsCheckout2 from "../../../imports/svg-85o8u63ty9";
 import svgPathsCheckout3 from "../../../imports/svg-y31vy7aob5";
 import svgPathsBack from "../../../imports/svg-o3b0qf83q9";
 import imgFrame64 from "figma:asset/e493d6895d865c0337ade71bbb76d37220029754.png";
+import { WidePageLayout } from "../WidePageLayout";
+import { h1MobileScale } from "../../constants/layout";
 
 // ─── SVG Icons ───
 
@@ -207,7 +209,7 @@ function CompletedSection({
 
 function OrderOverview() {
   return (
-    <div className="bg-[#f7f7f7] content-stretch flex flex-col gap-[40px] items-end justify-end pb-[40px] pt-[32px] px-[40px] relative rounded-[24px] shrink-0 w-full">
+    <div className="bg-[#f7f7f7] content-stretch flex flex-col gap-[40px] items-end justify-end py-[40px] px-[40px] relative rounded-[24px] shrink-0 w-full">
       {/* Order details */}
       <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
         <p className="font-['Aeroport:Medium',sans-serif] leading-[28px] not-italic relative shrink-0 text-[#25272a] text-[22px] tracking-[-1.2px] w-full">
@@ -383,7 +385,7 @@ function ShippingForm({
       {/* Checkbox */}
       <div className="content-stretch flex gap-[8px] items-start relative shrink-0 w-full">
         <div
-          className="relative rounded-[8px] shrink-0 size-[24px] cursor-pointer bg-[#fdfdff]"
+          className="relative rounded-[8px] shrink-0 size-[28px] cursor-pointer bg-[#fdfdff]"
           onClick={() => setDiffAddress(!diffAddress)}
         >
           <div className="absolute inset-0 rounded-[inherit] shadow-[inset_0px_4px_4px_0px_rgba(0,0,0,0.11)]" />
@@ -546,29 +548,30 @@ export function CheckoutStep({ onBack }: { onBack?: () => void }) {
   };
 
   return (
-    <div className="flex-1 relative w-full min-h-0 overflow-y-auto">
-      <div className="flex flex-col items-center w-full">
-        <div className="content-stretch flex flex-col items-center px-[120px] py-[80px] relative w-full">
-          {/* Back button */}
-          {onBack && (
-            <div className="absolute left-[64px] top-[32px] z-10">
-              <button
-                onClick={onBack}
-                className="relative shrink-0 size-[32px] cursor-pointer bg-transparent border-none p-0 hover:opacity-60 transition-opacity"
-              >
-                <div className="absolute inset-[17.18%_10.94%_17.18%_10.93%]">
-                  <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 25.0012 21.0052">
-                    <path d={svgPathsBack.p2d947a00} fill="#25272A" />
-                  </svg>
-                </div>
-              </button>
-            </div>
-          )}
+    <WidePageLayout
+      className="gap-[24px]"
+      backButton={
+        onBack ? (
+          <div className="absolute left-nav-gutter top-[32px] z-10 max-lg:left-page-gutter max-lg:top-[16px]">
+            <button
+              onClick={onBack}
+              className="relative shrink-0 size-[32px] cursor-pointer bg-transparent border-none p-0 hover:opacity-60 transition-opacity"
+            >
+              <div className="absolute inset-[17.18%_10.94%_17.18%_10.93%]">
+                <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 25.0012 21.0052">
+                  <path d={svgPathsBack.p2d947a00} fill="#25272A" />
+                </svg>
+              </div>
+            </button>
+          </div>
+        ) : undefined
+      }
+    >
           <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full">
             {/* Header */}
             <div className="content-stretch flex items-center justify-between relative shrink-0 w-full max-w-[1300px]">
               <div className="content-stretch flex flex-[1_0_0] flex-col gap-[16px] items-start min-h-px min-w-px not-italic relative text-[#25272a] text-center whitespace-nowrap">
-                <p className="font-['Aeroport:Bold',sans-serif] leading-[40px] relative shrink-0 text-[36px] tracking-[-1.4px]">
+                <p className={`font-['Aeroport:Bold',sans-serif] leading-[40px] relative shrink-0 text-[36px] tracking-[-1.4px] ${h1MobileScale}`}>
                   Secure checkout
                 </p>
                 <p className="font-['Aeroport:Light',sans-serif] leading-[20px] relative shrink-0 text-[16px] tracking-[-0.3px]">
@@ -578,9 +581,9 @@ export function CheckoutStep({ onBack }: { onBack?: () => void }) {
             </div>
 
             {/* Content: form + sidebar */}
-            <div className="content-stretch flex gap-[24px] items-start max-w-[1300px] relative shrink-0 w-full">
+            <div className="content-stretch flex gap-[24px] items-start max-w-[1300px] relative shrink-0 w-full max-lg:flex-col max-lg:gap-[24px]">
               {/* Left column - form card */}
-              <div className="bg-[#f7f7f7] content-stretch flex flex-col gap-[32px] items-end pb-[40px] pt-[32px] px-[40px] relative rounded-[24px] flex-1 min-w-0">
+              <div className="bg-[#f7f7f7] content-stretch flex flex-col gap-[32px] items-end py-[40px] px-[40px] relative rounded-[24px] flex-1 min-w-0">
                 <AnimatePresence mode="wait">
                   {checkoutStep === 0 && (
                     <AccountForm
@@ -618,13 +621,11 @@ export function CheckoutStep({ onBack }: { onBack?: () => void }) {
               </div>
 
               {/* Right column - order overview */}
-              <div className="flex-1 min-w-0 max-w-[400px]">
+              <div className="flex-1 min-w-0 max-w-[400px] max-lg:max-w-none max-lg:w-full">
                 <OrderOverview />
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+    </WidePageLayout>
   );
 }

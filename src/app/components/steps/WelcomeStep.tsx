@@ -46,7 +46,7 @@ export function WelcomeStep({ onNext }: WelcomeStepProps) {
   return (
     <div className="flex-1 relative w-full cursor-pointer" onClick={handleClick}>
       <div className="flex flex-col items-center justify-center overflow-clip size-full">
-        <div className="content-stretch flex flex-col items-center justify-center p-px relative size-full max-md:px-[24px]">
+        <div className="content-stretch flex flex-col items-center justify-center p-px relative size-full max-md:px-page-gutter">
           <div className="flex flex-col items-center gap-[24px]">
             <DoctorReference />
 

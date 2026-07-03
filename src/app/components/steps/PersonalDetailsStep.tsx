@@ -11,7 +11,7 @@ interface PersonalDetailsStepProps {
 function Checkbox({ checked, onClick }: { checked: boolean; onClick: () => void }) {
   return (
     <button onClick={onClick} className="bg-transparent border-none p-0 cursor-pointer shrink-0">
-      <div className={`relative rounded-[8px] shrink-0 size-[24px] transition-colors ${checked ? "bg-[#00b692]" : "bg-[#fdfdff]"}`}>
+      <div className={`relative rounded-[8px] shrink-0 size-[28px] transition-colors ${checked ? "bg-[#00b692]" : "bg-[#fdfdff]"}`}>
         {!checked && <div className="absolute inset-0 rounded-[inherit] shadow-[inset_0px_4px_4px_0px_rgba(0,0,0,0.11)]" />}
         <div className="absolute border-2 border-[#00b692] border-solid inset-0 rounded-[8px]" />
         {checked && (
@@ -28,7 +28,7 @@ function SubmitButton({ onClick }: { onClick: () => void }) {
   return (
     <button
       onClick={onClick}
-      className="bg-[#4300dd] content-stretch flex h-[52px] max-md:h-[58px] items-center justify-center px-[32px] py-[16px] relative rounded-[9999px] shrink-0 w-full cursor-pointer hover:bg-[#3600b3] transition-colors border-none"
+      className="bg-[#4300dd] content-stretch flex h-[52px] items-center justify-center px-[32px] py-[16px] relative rounded-[9999px] shrink-0 w-full cursor-pointer hover:bg-[#3600b3] transition-colors border-none"
     >
       <p className="font-['Aeroport:Bold',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#f7f7f7] text-[18px] text-center tracking-[-0.4px] whitespace-nowrap">Get my personalised plan</p>
     </button>
@@ -49,11 +49,11 @@ export function PersonalDetailsStep({ onNext }: PersonalDetailsStepProps) {
 
   return (
     <StepScrollLayout>
-          <div className="content-stretch flex gap-[24px] items-start justify-center min-h-px min-w-px relative max-md:flex-col max-md:gap-[32px] max-md:w-full">
+          <div className="content-stretch flex gap-[24px] items-start justify-center min-h-px min-w-px relative max-lg:flex-col max-lg:gap-[32px] max-lg:w-full">
             {/* Left side - Form */}
-            <div className="h-full relative rounded-[32px] shrink-0 w-[559px] max-md:h-auto max-md:w-full">
-              <div className="flex flex-col items-end justify-center rounded-[inherit] size-full max-md:items-stretch max-md:h-auto">
-                <div className="content-stretch flex flex-col gap-[32px] items-end justify-center relative size-full px-[16px] pt-[56px] pb-[0px] max-md:h-auto max-md:items-stretch max-md:justify-start max-md:px-0 max-md:pt-0">
+            <div className="h-full relative rounded-[32px] shrink-0 w-[559px] max-lg:h-auto max-lg:w-full">
+              <div className="flex flex-col items-end justify-center rounded-[inherit] size-full max-lg:items-stretch max-lg:h-auto">
+                <div className="content-stretch flex flex-col gap-[32px] items-end justify-center relative size-full px-[16px] pt-[56px] pb-[0px] max-lg:h-auto max-lg:items-stretch max-lg:justify-start max-md:px-0 max-md:pt-0">
                   {/* Header + Inputs */}
                   <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
                     <div className="content-stretch flex flex-col gap-[8px] max-md:gap-[16px] items-start relative shrink-0 w-full">
@@ -188,7 +188,7 @@ export function PersonalDetailsStep({ onNext }: PersonalDetailsStepProps) {
                   </div>
 
                   {/* Submit button — desktop only; mobile button is a direct sibling below */}
-                  <div className="max-md:hidden w-full">
+                  <div className="max-lg:hidden w-full">
                     <SubmitButton onClick={onNext} />
                   </div>
                 </div>
@@ -196,18 +196,18 @@ export function PersonalDetailsStep({ onNext }: PersonalDetailsStepProps) {
             </div>
 
             {/* Submit button — mobile only (Figma mainContainer sibling before image) */}
-            <div className="md:hidden w-full shrink-0">
+            <div className="lg:hidden w-full shrink-0">
               <SubmitButton onClick={onNext} />
             </div>
 
             {/* Right side - Image with testimonial */}
-            <div className="relative rounded-[32px] shrink-0 w-[450px] overflow-hidden md:sticky md:top-[40px] md:self-start md:h-[calc(100vh-180px)] md:max-h-[800px] max-md:h-auto max-md:w-full max-md:p-[24px] max-md:flex max-md:flex-col max-md:items-center max-md:justify-end">
+            <div className="relative rounded-[32px] shrink-0 w-[450px] overflow-hidden lg:sticky lg:top-[40px] lg:self-start lg:h-[calc(100vh-180px)] lg:max-h-[800px] max-lg:h-auto max-lg:w-full max-lg:flex max-lg:flex-col max-lg:items-center max-lg:justify-end">
               <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[32px]">
-                <img alt="" className="absolute inset-0 w-full h-full object-cover md:block hidden" src={imgFrame16} />
+                <img alt="" className="absolute inset-0 w-full h-full object-cover block max-md:hidden" src={imgFrame16} />
                 <img alt="" className="absolute h-[111.68%] left-[-17.82%] max-w-none top-[-11.73%] w-[151.49%] max-md:block hidden" src={imgFrame16} />
               </div>
-              <div className="flex flex-col items-center justify-end rounded-[inherit] size-full max-md:relative max-md:z-10 max-md:size-auto max-md:w-full">
-                <div className="content-stretch flex flex-col items-center justify-end p-[24px] relative size-full max-md:p-0 max-md:w-full">
+              <div className="flex flex-col items-center justify-end rounded-[inherit] size-full max-lg:relative max-lg:z-10 max-lg:size-auto max-lg:w-full">
+                <div className="content-stretch flex flex-col items-center justify-end p-[24px] relative size-full max-lg:p-0 max-lg:w-full">
                   <div className="relative shrink-0 w-full">
                     <div className="bg-white content-stretch flex flex-col gap-[16px] items-start overflow-clip px-[24px] py-[32px] relative rounded-[12px] w-full">
                       <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">

@@ -1,0 +1,16 @@
+/*
+ * Layout spacing tokens — shared across step screens.
+ * See docs/layout-grid.md for usage and alignment grid.
+ */
+@theme {
+  --spacing-page-gutter: 16px;
+  --spacing-page-gutter-wide: 96px;
+  --spacing-page-pt-mobile: 112px;
+  --spacing-page-pb-mobile: 56px;
+  --spacing-page-py: 80px;
+  --spacing-page-py-tablet: 40px;
+  --spacing-nav-gutter: 64px;
+  --spacing-content-narrow: 550px;
+  --spacing-content-outer: 624px;
+  --spacing-wide-max: 1300px;
+}

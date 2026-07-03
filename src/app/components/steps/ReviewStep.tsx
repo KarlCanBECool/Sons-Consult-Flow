@@ -10,6 +10,7 @@ import imgFrame74 from "figma:asset/c3f6439166c028d7616106dd58cb96fd9134aebe.png
 import imgFrame75 from "figma:asset/ff0af4e85ba9de7221e6db21672eda7b4ad2c5c1.png";
 import imgFrame76 from "figma:asset/5a39f2f6c66ab8c0ec11e58910f7078a73a898ed.png";
 import imgImage1 from "figma:asset/fe7363372aff256d6d7e8aa3f606826413f7d4d0.png";
+import { WidePageLayout } from "../WidePageLayout";
 
 function PlusButton() {
   return (
@@ -78,13 +79,11 @@ export function ReviewStep({ onGoToPlan, onCheckout }: { onGoToPlan?: () => void
   const [promoApplied] = useState(true);
 
   return (
-    <div className="flex-1 relative w-full min-h-0 overflow-y-auto">
-      <div className="flex flex-col items-center w-full">
-        <div className="content-stretch flex flex-col gap-[32px] items-center px-[96px] py-[80px] relative w-full">
+    <WidePageLayout className="gap-[32px]">
           {/* Header */}
-          <div className="content-stretch flex gap-[40px] items-end justify-between relative shrink-0 w-full max-w-[1400px]">
+          <div className="content-stretch flex gap-[40px] items-end justify-between relative shrink-0 w-full max-w-[1300px] max-lg:flex-col max-lg:items-start max-lg:gap-[24px]">
             <div className="content-stretch flex flex-[1_0_0] flex-col gap-[16px] items-start min-h-px min-w-px relative">
-              <p className="font-['Aeroport:Bold',sans-serif] leading-[40px] not-italic relative shrink-0 text-[#25272a] text-[36px] tracking-[-1.4px]">Review your selection</p>
+              <p className="font-['Aeroport:Bold',sans-serif] leading-[40px] not-italic relative shrink-0 text-[#25272a] text-[36px] tracking-[-1.4px] max-md:text-[24px] max-md:leading-[28px]">Review your selection</p>
               <p className="font-['Aeroport:Light',sans-serif] leading-[20px] relative shrink-0 text-[#25272a] text-[16px] tracking-[-0.3px]">
                 Based on your responses in the consultation, our medical team recommend the following plan for you:
               </p>
@@ -92,7 +91,7 @@ export function ReviewStep({ onGoToPlan, onCheckout }: { onGoToPlan?: () => void
             <NeedTimeCard />
           </div>
 
-          <div className="content-stretch flex gap-[40px] items-start relative shrink-0 w-full max-w-[1400px]">
+          <div className="content-stretch flex gap-[40px] items-start relative shrink-0 w-full max-w-[1300px] max-lg:flex-col max-lg:gap-[24px]">
             {/* Left column */}
             <div className="content-stretch flex flex-[1_0_0] flex-col gap-[24px] items-start min-h-px min-w-px relative">
               {/* Your basket */}
@@ -151,7 +150,7 @@ export function ReviewStep({ onGoToPlan, onCheckout }: { onGoToPlan?: () => void
             </div>
 
             {/* Right column wrapper */}
-            <div className="flex flex-col gap-[16px] shrink-0 w-[400px]">
+            <div className="flex flex-col gap-[16px] shrink-0 w-[400px] max-lg:w-full">
               {/* Right column - Order overview */}
               <div className="bg-[#f7f7f7] content-stretch flex flex-col gap-[40px] items-end justify-end pb-[40px] pt-[32px] px-[40px] relative rounded-[24px] shrink-0 w-full">
                 {/* Order overview section */}
@@ -248,9 +247,7 @@ export function ReviewStep({ onGoToPlan, onCheckout }: { onGoToPlan?: () => void
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+    </WidePageLayout>
   );
 }
 

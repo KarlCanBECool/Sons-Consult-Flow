@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { useIsMobile } from "../../hooks/useIsMobile";
 import svgPaths from "../../../imports/svg-tahh2rke1n";
 import { DoctorReference } from "../DoctorReference";
+import { StepScrollLayout } from "../StepScrollLayout";
 import imgFrame35 from "figma:asset/a29e8b5db0884e8867d35bcde7948c7eeff82a76.png";
 import imgFrame36 from "figma:asset/41d238c3700ad59cde94a49c0ed2e60aa7e5aa36.png";
 import imgImage2 from "figma:asset/5bac27e572fd372bba54aee0dccad7c545e321cb.png";
@@ -224,12 +225,9 @@ export function TestimonialsStep({ onNext }: TestimonialsStepProps) {
   }
 
   return (
-    <div className="flex-1 relative w-full min-h-0 overflow-y-auto">
-      <div className="flex flex-col items-center min-h-full">
-        <div className="flex flex-col items-center justify-center py-[80px] gap-[40px] relative w-full min-h-full">
-
-          {/* Header — constrained to 600px */}
-          <div className="flex flex-col gap-[24px] items-center w-full max-w-[600px] px-[40px] max-md:px-[16px]">
+    <StepScrollLayout className="min-h-full max-md:min-h-0 justify-center max-md:justify-start gap-[40px]">
+      {/* Header — constrained to 600px */}
+      <div className="flex flex-col gap-[24px] items-center w-full max-w-[600px] px-[40px] max-md:px-0">
             <DoctorReference />
             <p className="font-['Aeroport:Bold',sans-serif] leading-[0] min-w-full relative shrink-0 text-[#25272a] text-[28px] text-center tracking-[-1.4px] w-[min-content] max-md:text-[24px] max-md:tracking-[-1.08px]">
               <span className="leading-[34px] max-md:leading-[28px]">{`We've helped 400,000 men like you `}</span>
@@ -241,7 +239,7 @@ export function TestimonialsStep({ onNext }: TestimonialsStepProps) {
 
           {/* Carousel — full viewport width */}
           <div className="flex flex-col gap-[24px] items-center w-full max-md:gap-[16px]">
-            <div className="relative w-full flex items-center justify-center max-md:px-[16px]">
+            <div className="relative w-full flex items-center justify-center max-md:px-0">
               {/* Left arrow — desktop: outer edge of left card; compact: clamped to viewport edge */}
               <button
                 onClick={goPrev}
@@ -316,7 +314,7 @@ export function TestimonialsStep({ onNext }: TestimonialsStepProps) {
           </div>
 
           {/* Continue button — constrained to 600px */}
-          <div className="w-full max-w-[600px] px-[40px] max-md:px-[16px]">
+          <div className="w-full max-w-[600px] px-[40px] max-md:px-0">
             {/* Continue button */}
             <button
               onClick={onNext}
@@ -325,8 +323,6 @@ export function TestimonialsStep({ onNext }: TestimonialsStepProps) {
               <p className="font-['Aeroport:Bold',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#f7f7f7] text-[18px] text-center tracking-[-0.4px] whitespace-nowrap">Continue</p>
             </button>
           </div>
-        </div>
-      </div>
-    </div>
+    </StepScrollLayout>
   );
 }

@@ -55,7 +55,7 @@ function RootLayout() {
       {showBack && (
         <button
           onClick={goBack}
-          className="fixed top-[132px] left-[64px] z-50 bg-[rgba(200,200,200,0.4)] backdrop-blur-sm flex items-center justify-center w-[40px] h-[40px] rounded-[9999px] border-none cursor-pointer hover:bg-[rgba(200,200,200,0.6)] transition-colors max-md:top-[104px] max-md:left-[16px]"
+          className="fixed top-[132px] left-nav-gutter z-50 bg-[rgba(200,200,200,0.4)] backdrop-blur-sm flex items-center justify-center w-[40px] h-[40px] rounded-[9999px] border-none cursor-pointer hover:bg-[rgba(200,200,200,0.6)] transition-colors max-md:top-[104px] max-md:left-page-gutter"
         >
           <div className="relative shrink-0 size-[20px]">
             <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 18.7509 15.7539">
