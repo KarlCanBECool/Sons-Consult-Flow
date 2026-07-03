@@ -187,12 +187,12 @@ export function PersonalDetailsStep({ onNext }: PersonalDetailsStepProps) {
             </div>
 
             {/* Right side - Image with testimonial */}
-            <div className="relative rounded-[32px] shrink-0 w-[450px] h-[800px] overflow-hidden max-md:w-full max-md:h-[300px]">
+            <div className="relative rounded-[32px] shrink-0 w-[450px] overflow-hidden md:sticky md:top-[40px] md:self-start md:h-[calc(100vh-180px)] md:max-h-[800px] max-md:w-full max-md:h-[300px]">
               <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[32px]">
                 <img alt="" className="absolute inset-0 w-full h-full object-cover" src={imgFrame16} />
               </div>
               <div className="flex flex-col items-center justify-end rounded-[inherit] size-full">
-                <div className="content-stretch flex flex-col items-center justify-end p-[24px] relative size-full max-h-[800px]">
+                <div className="content-stretch flex flex-col items-center justify-end p-[24px] relative size-full">
                   <div className="relative shrink-0 w-full">
                     <div className="bg-white content-stretch flex flex-col gap-[16px] items-start overflow-clip px-[24px] py-[32px] relative rounded-[12px] w-full">
                       <p className="font-['Aeroport:Light','Noto_Sans:Light',sans-serif] leading-[20px] relative shrink-0 text-[#1d1d1d] text-[16px] tracking-[-0.3px] w-full" style={{ fontVariationSettings: '"CTGR" 0, "wdth" 100, "wght" 300' }}>

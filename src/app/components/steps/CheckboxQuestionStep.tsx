@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { QuestionStepLayout } from "../QuestionStepLayout";
 import { TooltipIcon } from "../TooltipIcon";
 
 interface CheckboxQuestionStepProps {
@@ -48,7 +49,6 @@ export function CheckboxQuestionStep({ question, options, onNext, savedValue, on
     });
   };
 
-  // Sync saved answer after selected state updates
   React.useEffect(() => {
     onSaveAnswer?.(selected);
   }, [selected]);
@@ -58,65 +58,63 @@ export function CheckboxQuestionStep({ question, options, onNext, savedValue, on
   };
 
   return (
-    <div className="flex-1 relative w-full min-h-0">
-      <div className="overflow-y-auto size-full">
-        <div className="min-h-full flex flex-col items-center justify-center px-px py-[80px]">
-          <div className="content-stretch flex flex-col gap-[24px] items-end overflow-clip px-[40px] py-[32px] relative rounded-[32px] shrink-0 w-[600px] max-md:w-full max-md:px-[16px]">
-            <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
-              <p className="font-['Aeroport:Bold',sans-serif] leading-[34px] text-[28px] text-black tracking-[-1.4px] w-full max-md:text-[24px] max-md:leading-[32px]">
-                {question}
-                {tooltip && (
-                  <span className="inline-flex items-center" style={{ verticalAlign: "middle", marginLeft: 4 }}>
-                    <TooltipIcon title={tooltip.title} description={tooltip.description} />
-                  </span>
-                )}
-              </p>
-            </div>
-
-            <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 max-md:w-full">
-              {options.map((option, index) => (
-                <div
-                  key={index}
-                  onClick={() => handleToggle(index)}
-                  className={`bg-[#f7f7f7] content-stretch flex flex-col gap-[12px] px-[24px] py-[16px] relative rounded-[12px] shrink-0 w-[520px] max-md:w-full cursor-pointer transition-colors ${selected.has(index) ? "" : "hover:bg-[#efefef]"}`}
-                >
-                  <div className="flex gap-[8px] items-center min-h-[40px]">
-                    <p className="flex-[1_0_0] font-['Aeroport:Light',sans-serif] leading-[20px] not-italic text-[16px] text-black tracking-[-0.3px] text-left">
-                      {option}
-                    </p>
-                    <Checkbox checked={selected.has(index)} />
-                  </div>
-                  {showInputs && selected.has(index) && option !== "None of these" && option !== "None of These" && option !== "None of the above" && option !== "All of the above" && (
-                    <div
-                      className="flex flex-col gap-[8px]"
-                      style={{ animation: "fadeIn 200ms ease forwards" }}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <p className="font-['Aeroport:Bold',sans-serif] text-[14px] leading-[20px] text-black tracking-[-0.3px]">
-                        Additional information
-                      </p>
-                      <input
-                        type="text"
-                        placeholder="Please elaborate..."
-                        value={inputValues[index] ?? ""}
-                        onChange={(e) => setInputValues((prev) => ({ ...prev, [index]: e.target.value }))}
-                        className="w-full bg-[#efefef] rounded-[9999px] px-[20px] py-[14px] font-['Aeroport:Light',sans-serif] text-[16px] text-black tracking-[-0.3px] placeholder:text-black/30 border-none outline-none"
-                      />
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            <button
-              onClick={handleContinue}
-              className="bg-[#4300dd] content-stretch flex h-[52px] items-center justify-center px-[32px] py-[16px] relative rounded-[9999px] shrink-0 w-full cursor-pointer hover:bg-[#3600b3] transition-colors border-none"
-            >
-              <p className="font-['Aeroport:Bold',sans-serif] leading-[16px] not-italic text-[#f7f7f7] text-[18px] text-center tracking-[-0.4px] whitespace-nowrap">Continue</p>
-            </button>
-          </div>
-        </div>
+    <QuestionStepLayout
+      footer={
+        <button
+          onClick={handleContinue}
+          className="bg-[#4300dd] content-stretch flex h-[52px] items-center justify-center px-[32px] py-[16px] relative rounded-[9999px] w-full cursor-pointer hover:bg-[#3600b3] transition-colors border-none"
+        >
+          <p className="font-['Aeroport:Bold',sans-serif] leading-[16px] not-italic text-[#f7f7f7] text-[18px] text-center tracking-[-0.4px] whitespace-nowrap">
+            Continue
+          </p>
+        </button>
+      }
+    >
+      <div className="flex flex-col items-start w-full">
+        <p className="font-['Aeroport:Bold',sans-serif] leading-[34px] text-[28px] text-black tracking-[-1.4px] w-full max-md:text-[24px] max-md:leading-[28px] max-md:tracking-[-1.08px]">
+          {question}
+          {tooltip && (
+            <span className="inline-flex items-center" style={{ verticalAlign: "middle", marginLeft: 4 }}>
+              <TooltipIcon title={tooltip.title} description={tooltip.description} />
+            </span>
+          )}
+        </p>
       </div>
-    </div>
+
+      <div className="flex flex-col gap-[16px] w-full">
+        {options.map((option, index) => (
+          <div
+            key={index}
+            onClick={() => handleToggle(index)}
+            className={`bg-[#f7f7f7] content-stretch flex flex-col gap-[12px] px-[24px] py-[16px] relative rounded-[12px] w-full cursor-pointer transition-colors ${selected.has(index) ? "" : "hover:bg-[#efefef]"}`}
+          >
+            <div className="flex gap-[8px] items-center min-h-[40px]">
+              <p className="flex-[1_0_0] font-['Aeroport:Light',sans-serif] leading-[20px] not-italic text-[16px] text-black tracking-[-0.3px] text-left">
+                {option}
+              </p>
+              <Checkbox checked={selected.has(index)} />
+            </div>
+            {showInputs && selected.has(index) && option !== "None of these" && option !== "None of These" && option !== "None of the above" && option !== "All of the above" && (
+              <div
+                className="flex flex-col gap-[8px]"
+                style={{ animation: "fadeIn 200ms ease forwards" }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <p className="font-['Aeroport:Bold',sans-serif] text-[14px] leading-[20px] text-black tracking-[-0.3px]">
+                  Additional information
+                </p>
+                <input
+                  type="text"
+                  placeholder="Please elaborate..."
+                  value={inputValues[index] ?? ""}
+                  onChange={(e) => setInputValues((prev) => ({ ...prev, [index]: e.target.value }))}
+                  className="w-full bg-[#efefef] rounded-[9999px] px-[20px] py-[14px] font-['Aeroport:Light',sans-serif] text-[16px] text-black tracking-[-0.3px] placeholder:text-black/30 border-none outline-none"
+                />
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </QuestionStepLayout>
   );
 }

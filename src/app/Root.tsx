@@ -1,8 +1,8 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import { Outlet, useNavigate, useLocation } from "react-router";
 import { motion } from "motion/react";
 import { NavigationBar } from "./components/NavigationBar";
-import { FormProvider } from "./context/FormContext";
+import { FormProvider, useFormContext } from "./context/FormContext";
 import svgPaths from "../imports/ButtonPrimary/svg-eeafgay791";
 
 const TOTAL_STEPS = 16;
@@ -10,6 +10,8 @@ const TOTAL_STEPS = 16;
 function RootLayout() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { resetForm } = useFormContext();
+  const [restartKey, setRestartKey] = useState(0);
 
   const match = location.pathname.match(/\/step\/(\d+)/);
   const currentStep = match ? parseInt(match[1], 10) : 0;
@@ -33,6 +35,12 @@ function RootLayout() {
     if (section === "plan") navigate("/step/13");
     else if (section === "final") navigate("/step/14");
   }, [navigate]);
+
+  const handleRestartFlow = useCallback(() => {
+    resetForm();
+    setRestartKey((k) => k + 1);
+    navigate("/step/0", { replace: true });
+  }, [resetForm, navigate]);
 
   const showBack =
     currentStep >= 1 &&
@@ -60,6 +68,7 @@ function RootLayout() {
         onBack={goBack}
         showBack={showBack}
         onSectionClick={handleSectionClick}
+        onRestartFlow={handleRestartFlow}
       />
       <motion.div
         key={location.pathname}
@@ -68,7 +77,7 @@ function RootLayout() {
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className="flex-1 flex w-full min-h-0"
       >
-        <Outlet />
+        <Outlet key={restartKey} />
       </motion.div>
     </div>
   );

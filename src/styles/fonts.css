@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Aeroport:Light';
+  src: url('/fonts/aeroport/Aeroport-light-trial.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeroport:Regular';
+  src: url('/fonts/aeroport/Aeroport-regular-trial.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeroport:Medium';
+  src: url('/fonts/aeroport/Aeroport-medium-trial.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeroport:Bold';
+  src: url('/fonts/aeroport/Aeroport-bold-trial.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

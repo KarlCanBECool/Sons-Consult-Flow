@@ -27,10 +27,10 @@ export function AcceptStep({ onNext }: AcceptStepProps) {
     <div className="flex-1 relative w-full overflow-y-auto">
       <div className="flex flex-col items-center justify-center min-h-full">
         <div className="content-stretch flex flex-col gap-[24px] items-center justify-center px-px py-[80px] relative w-full max-md:pb-[56px]">
-          <div className="content-stretch flex gap-[24px] items-stretch justify-center min-h-px min-w-px relative max-w-[1034px] max-md:flex-col max-md:gap-0 max-md:w-full">
+          <div className="content-stretch flex gap-[24px] items-stretch md:items-start justify-center min-h-px min-w-px relative max-w-[1034px] max-md:flex-col max-md:gap-0 max-md:w-full">
 
             {/* Left side - Product image */}
-            <div className="h-full relative rounded-[32px] shrink-0 w-[450px] max-md:w-full max-md:h-auto max-md:rounded-[24px] max-md:overflow-hidden">
+            <div className="relative rounded-[32px] shrink-0 w-[450px] md:sticky md:top-[40px] md:self-start md:h-[calc(100vh-180px)] md:max-h-[800px] md:overflow-hidden max-md:w-full max-md:h-auto max-md:rounded-[24px] max-md:overflow-hidden">
               {/* Desktop image — absolutely positioned, full height */}
               <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[32px] size-full md:block hidden" src={imgFrame16} />
 
@@ -52,7 +52,7 @@ export function AcceptStep({ onNext }: AcceptStepProps) {
 
               {/* Desktop overlay content (guarantee card + doctor avatar) */}
               <div className="flex flex-col items-center justify-end rounded-[inherit] size-full max-md:hidden">
-                <div className="content-stretch flex flex-col items-center justify-end p-[24px] relative size-full min-h-[600px]">
+                <div className="content-stretch flex flex-col items-center justify-end p-[24px] relative size-full">
                   <div className="inline-grid relative shrink-0">
                     <div className="bg-[#f7f7f7] content-stretch flex flex-col gap-[8px] items-start mt-[40px] overflow-clip pb-[32px] pt-[24px] px-[24px] relative rounded-[12px] text-black w-[402px]">
                       <p className="font-['Aeroport:Medium',sans-serif] leading-[28px] not-italic text-[22px] tracking-[-1.4px] w-full">Money back guarantee</p>

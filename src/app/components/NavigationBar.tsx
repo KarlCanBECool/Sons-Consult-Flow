@@ -8,6 +8,7 @@ interface NavigationBarProps {
   onBack?: () => void;
   showBack?: boolean;
   onSectionClick?: (section: string) => void;
+  onRestartFlow?: () => void;
   cartCount?: number;
 }
 
@@ -88,7 +89,7 @@ function ProgressSection({ label, progress, completed, onClick }: { label: strin
   );
 }
 
-export function NavigationBar({ currentStep, totalSteps, onBack, showBack, onSectionClick, cartCount = 0 }: NavigationBarProps) {
+export function NavigationBar({ currentStep, totalSteps, onBack, showBack, onSectionClick, onRestartFlow, cartCount = 0 }: NavigationBarProps) {
   const [showExitModal, setShowExitModal] = useState(false);
 
   // Steps 0-11 are "You" section, steps 12 is form, steps 13-15 are plan
@@ -157,7 +158,7 @@ export function NavigationBar({ currentStep, totalSteps, onBack, showBack, onSec
               <button
                 onClick={() => {
                   setShowExitModal(false);
-                  window.location.reload();
+                  onRestartFlow?.();
                 }}
                 className="h-[58px] px-[32px] py-[16px] rounded-[9999px] border-none bg-transparent cursor-pointer font-['Aeroport:Bold',sans-serif] text-[18px] text-[#373737] tracking-[-0.4px] hover:bg-[#f0f0f0] transition-colors"
               >

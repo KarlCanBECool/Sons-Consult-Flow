@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { motion } from "motion/react";
 import { useIsMobile } from "../../hooks/useIsMobile";
 import svgPaths from "../../../imports/svg-tahh2rke1n";
-import imgImage from "figma:asset/c7e15d22b81b0c6655fcbb534bacf96277cbbc77.png";
+import { DoctorReference } from "../DoctorReference";
 import imgFrame35 from "figma:asset/a29e8b5db0884e8867d35bcde7948c7eeff82a76.png";
 import imgFrame36 from "figma:asset/41d238c3700ad59cde94a49c0ed2e60aa7e5aa36.png";
 import imgImage2 from "figma:asset/5bac27e572fd372bba54aee0dccad7c545e321cb.png";
@@ -224,17 +224,7 @@ export function TestimonialsStep({ onNext }: TestimonialsStepProps) {
 
           {/* Header — constrained to 600px */}
           <div className="flex flex-col gap-[24px] items-center w-full max-w-[600px] px-[40px] max-md:px-[16px]">
-            <div className="content-stretch flex flex-col gap-[8px] items-center relative shrink-0">
-              <div className="relative rounded-[9999px] shrink-0 size-[40px]">
-                <div className="absolute inset-0 pointer-events-none rounded-[9999px]">
-                  <div className="absolute bg-[#bdbdbd] inset-0 rounded-[9999px]" />
-                  <div className="absolute inset-0 overflow-hidden rounded-[9999px]">
-                    <img alt="" className="absolute left-[-9.61%] max-w-none size-[127.28%] top-[-0.54%]" src={imgImage} />
-                  </div>
-                </div>
-              </div>
-              <p className="font-['Aeroport:Light',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#25272a] text-[12px] text-center tracking-[-0.3px] whitespace-nowrap">Dr. Knut A. Moe, Sons Medical Director</p>
-            </div>
+            <DoctorReference />
             <p className="font-['Aeroport:Bold',sans-serif] leading-[0] min-w-full relative shrink-0 text-[#25272a] text-[28px] text-center tracking-[-1.4px] w-[min-content] max-md:text-[24px] max-md:tracking-[-1.08px]">
               <span className="leading-[34px] max-md:leading-[28px]">{`We've helped 400,000 men like you `}</span>
               <span className="leading-[34px] max-md:leading-[28px] text-[#4300dd]">stop hair loss</span>

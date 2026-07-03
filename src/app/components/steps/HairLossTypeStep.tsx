@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { QuestionStepLayout } from "../QuestionStepLayout";
 import { TooltipIcon } from "../TooltipIcon";
 import svgPaths from "../../../imports/4HairLossType-1/svg-ctdh0e3u1e";
 
@@ -113,75 +114,67 @@ export function HairLossTypeStep({ onNext, savedValue, onSaveAnswer }: HairLossT
     }
   };
 
+  const continueFooter =
+    selected !== null && hasSavedValue && !hasClicked ? (
+      <button
+        onClick={handleContinue}
+        className="bg-[#4300dd] content-stretch flex h-[52px] items-center justify-center px-[32px] py-[16px] relative rounded-[9999px] w-full cursor-pointer hover:bg-[#3600b3] transition-colors border-none"
+      >
+        <p className="font-['Aeroport:Bold',sans-serif] leading-[16px] not-italic text-[#f7f7f7] text-[18px] text-center tracking-[-0.4px] whitespace-nowrap">
+          Continue
+        </p>
+      </button>
+    ) : undefined;
+
   return (
-    <div className="flex-1 relative w-full min-h-0">
-      <div className="overflow-y-auto size-full">
-        <div className="min-h-full flex flex-col items-center justify-center px-px py-[80px]">
-          <div className="content-stretch flex flex-col gap-[24px] items-end px-[40px] py-[32px] relative rounded-[32px] shrink-0 w-[600px] max-md:w-full max-md:px-[16px]">
-
-            {/* Title */}
-            <div className="content-stretch flex flex-col gap-[4px] items-start max-w-[520px] relative shrink-0 w-full">
-              <p className="font-['Aeroport:Bold',sans-serif] leading-[34px] not-italic text-[28px] text-[#1d1d1d] tracking-[-1.4px] w-full max-md:text-[24px] max-md:leading-[32px]">
-                Which image best describes your
-              </p>
-              <div className="flex gap-[4px] items-center">
-                <p className="font-['Aeroport:Bold',sans-serif] leading-[34px] not-italic text-[28px] text-[#1d1d1d] tracking-[-1.4px] whitespace-nowrap max-md:text-[24px] max-md:leading-[32px]">
-                  hair loss?
-                </p>
-                <span className="inline-flex items-center" style={{ verticalAlign: "middle" }}>
-                  <TooltipIcon
-                    title="Why do we ask this?"
-                    description="We need to know this information to determine the most suitable product for you."
-                  />
-                </span>
-              </div>
-            </div>
-
-            {/* Options grid */}
-            <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
-              {/* Row 1: Temples | Random patches */}
-              <div className="content-stretch flex gap-[24px] h-[250px] items-start relative shrink-0 w-full max-md:flex-col max-md:h-auto">
-                <HairLossOption
-                  icon={<TemplesSvg />}
-                  label="Temples only (receding at the front)"
-                  onClick={() => handleSelect(0)}
-                  isSelected={selected === 0}
-                />
-                <HairLossOption
-                  icon={<RandomPatchesSvg />}
-                  label="Random patches"
-                  onClick={() => handleSelect(1)}
-                  isSelected={selected === 1}
-                />
-              </div>
-              {/* Row 2: Temples/Crown | Completely bald */}
-              <div className="content-stretch flex gap-[24px] h-[250px] items-start relative shrink-0 w-full max-md:flex-col max-md:h-auto">
-                <HairLossOption
-                  icon={<TemplesCrownSvg />}
-                  label="Temples/Crown"
-                  onClick={() => handleSelect(2)}
-                  isSelected={selected === 2}
-                />
-                <HairLossOption
-                  icon={<CompletelyBaldSvg />}
-                  label="Completely bald"
-                  onClick={() => handleSelect(3)}
-                  isSelected={selected === 3}
-                />
-              </div>
-            </div>
-
-            {selected !== null && hasSavedValue && !hasClicked && (
-              <button
-                onClick={handleContinue}
-                className="bg-[#4300dd] content-stretch flex h-[52px] items-center justify-center px-[32px] py-[16px] relative rounded-[9999px] shrink-0 w-full cursor-pointer hover:bg-[#3600b3] transition-colors border-none"
-              >
-                <p className="font-['Aeroport:Bold',sans-serif] leading-[16px] not-italic text-[#f7f7f7] text-[18px] text-center tracking-[-0.4px] whitespace-nowrap">Continue</p>
-              </button>
-            )}
-          </div>
+    <QuestionStepLayout footer={continueFooter}>
+      <div className="flex flex-col gap-[4px] items-start w-full">
+        <p className="font-['Aeroport:Bold',sans-serif] leading-[34px] not-italic text-[28px] text-[#1d1d1d] tracking-[-1.4px] w-full max-md:text-[24px] max-md:leading-[28px] max-md:tracking-[-1.08px]">
+          Which image best describes your
+        </p>
+        <div className="flex gap-[4px] items-center">
+          <p className="font-['Aeroport:Bold',sans-serif] leading-[34px] not-italic text-[28px] text-[#1d1d1d] tracking-[-1.4px] whitespace-nowrap max-md:text-[24px] max-md:leading-[28px] max-md:tracking-[-1.08px]">
+            hair loss?
+          </p>
+          <span className="inline-flex items-center" style={{ verticalAlign: "middle" }}>
+            <TooltipIcon
+              title="Why do we ask this?"
+              description="We need to know this information to determine the most suitable product for you."
+            />
+          </span>
         </div>
       </div>
-    </div>
+
+      <div className="flex flex-col gap-[24px] w-full">
+        <div className="flex gap-[24px] h-[250px] items-start w-full max-md:flex-col max-md:h-auto">
+          <HairLossOption
+            icon={<TemplesSvg />}
+            label="Temples only (receding at the front)"
+            onClick={() => handleSelect(0)}
+            isSelected={selected === 0}
+          />
+          <HairLossOption
+            icon={<RandomPatchesSvg />}
+            label="Random patches"
+            onClick={() => handleSelect(1)}
+            isSelected={selected === 1}
+          />
+        </div>
+        <div className="flex gap-[24px] h-[250px] items-start w-full max-md:flex-col max-md:h-auto">
+          <HairLossOption
+            icon={<TemplesCrownSvg />}
+            label="Temples/Crown"
+            onClick={() => handleSelect(2)}
+            isSelected={selected === 2}
+          />
+          <HairLossOption
+            icon={<CompletelyBaldSvg />}
+            label="Completely bald"
+            onClick={() => handleSelect(3)}
+            isSelected={selected === 3}
+          />
+        </div>
+      </div>
+    </QuestionStepLayout>
   );
 }

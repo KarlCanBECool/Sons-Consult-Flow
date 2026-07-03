@@ -7,11 +7,13 @@ interface FormData {
 interface FormContextValue {
   formData: FormData;
   saveAnswer: (key: string, value: any) => void;
+  resetForm: () => void;
 }
 
 const FormContext = createContext<FormContextValue>({
   formData: {},
   saveAnswer: () => {},
+  resetForm: () => {},
 });
 
 export function useFormContext() {
@@ -25,8 +27,12 @@ export function FormProvider({ children }: { children: React.ReactNode }) {
     setFormData((prev) => ({ ...prev, [key]: value }));
   }, []);
 
+  const resetForm = useCallback(() => {
+    setFormData({});
+  }, []);
+
   return (
-    <FormContext.Provider value={{ formData, saveAnswer }}>
+    <FormContext.Provider value={{ formData, saveAnswer, resetForm }}>
       {children}
     </FormContext.Provider>
   );
